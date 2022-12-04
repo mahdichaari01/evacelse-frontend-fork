@@ -1,9 +1,9 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-
+import UI from "./Testing/UI/UI";
 function App() {
-	return <div></div>;
+	return <UI />;
 }
 
 export default App;
