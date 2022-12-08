@@ -1,9 +1,15 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import UI from "./Testing/UI/UI";
+import UITesting from "./Testing/UI/UITesting";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
-	return <UI />;
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route index path="/UITEST/*" element={<UITesting />}></Route>
+			</Routes>
+		</BrowserRouter>
+	);
 }
 
 export default App;

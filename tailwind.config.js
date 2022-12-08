@@ -1,8 +1,44 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
 	content: ["./src/**/*.{js,jsx,ts,tsx}"],
 	theme: {
-		extend: {},
+		borderRadius: {
+			...defaultTheme.borderRadius,
+			DEFAULT: "0.625rem",
+			// ...defaultTheme.borderRadius,
+		},
+		fontFamily: {
+			sans: ["Rubik", "sans-serif"],
+		},
+		fontSize: {
+			...defaultTheme.fontSize,
+		},
+		fontWeight: {
+			...defaultTheme.fontWeight,
+		},
+		extend: {
+			colors: {
+				transparent: "transparent",
+				current: "currentColor",
+				"islamic-green": "#009d94",
+				"chinese-gold": "#D3A500",
+				sinopia: "#DC4504",
+				darks: {
+					DEFAULT: "#373737",
+					highest: "#373737",
+					mid: "#686868",
+					low: "A0A0A0",
+				},
+				clears: {
+					DEFAULT: "#FFFFFF",
+					primary: "#FFFFFF",
+					secondary: "#F5F5F7",
+					tertiary: "#EBEBEB",
+				},
+			},
+		},
 	},
 	plugins: [require("daisyui")],
 	daisyui: {
@@ -13,7 +49,7 @@ module.exports = {
 					primary: "#009D94",
 					secondary: "#373737",
 					accent: "#6CD276",
-					neutral: "#FFFFFF",
+					neutral: "#F5F5F7",
 					"base-100": "#FFFFFF",
 					"base-200": "#F5F5F7",
 					"base-300": "#EBEBEB",
