@@ -1,5 +1,16 @@
 {
     "general": {
         "min-screen-width": "750px"
+    },
+    "text": {
+        "favoriteButton": {
+            "add": "non favoris",
+            "remove": "favoris"
+        },
+        "questionButtons": {
+            "next": "suivant",
+            "previous": "précédent",
+            "verify": "verifier la résponse"
+        }
     }
 }

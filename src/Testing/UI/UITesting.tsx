@@ -11,9 +11,9 @@ export default function UITesting() {
 				<ComponentDisplay />
 				<label
 					htmlFor="my-drawer"
-					className="btn-primary drawer-button btn fixed right-4 top-4 w-fit rounded-full"
+					className=" drawer-button btn-circle btn fixed right-0 bottom-0 m-1"
 				>
-					categories
+					<span className="material-symbols-rounded">menu</span>
 				</label>
 			</div>
 			<div className="drawer-side">

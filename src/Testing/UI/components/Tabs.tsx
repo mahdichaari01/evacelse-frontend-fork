@@ -10,7 +10,7 @@ export default function Tabs({ element }: { element: ITestVariant[] }) {
 					to={variant.variant}
 					className={({ isActive }) =>
 						[
-							"tab-lg mt-1 text-base-300",
+							"tab-md mt-1 text-base-300",
 							"tab",
 							isActive ? "tab-active text-darks" : "",
 						]

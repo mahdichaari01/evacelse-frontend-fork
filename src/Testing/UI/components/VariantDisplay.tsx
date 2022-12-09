@@ -6,13 +6,13 @@ import Tabs from "./Tabs";
 export default function VariantDisplay({ element }: { element: ITestElement }) {
 	return (
 		<>
-			<div className="fixed h-screen w-screen overflow-scroll p-4">
+			<div className="fixed h-screen w-screen overflow-scroll">
 				<Routes>
 					{element.component.map((variant) => (
 						<Route
 							key={element.name + variant.variant}
 							path={`/${variant.variant}`}
-							element={<div>{variant.element}</div>}
+							element={<div className="w-fit bg-base-100">{variant.element}</div>}
 						/>
 					))}
 					<Route

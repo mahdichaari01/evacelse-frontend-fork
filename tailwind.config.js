@@ -7,6 +7,7 @@ module.exports = {
 		borderRadius: {
 			...defaultTheme.borderRadius,
 			DEFAULT: "0.625rem",
+			sm: "0.3125rem",
 			// ...defaultTheme.borderRadius,
 		},
 		fontFamily: {

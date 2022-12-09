@@ -394,13 +394,7 @@ function SAMPLE2_3() {
 insert("Examples", "SAMPLE1", [
 	{
 		variant: "variant1",
-		element: (
-			<>
-				<SAMPLE1_1 />
-				<SAMPLE1_1 />
-				<SAMPLE1_1 />
-			</>
-		),
+		element: <SAMPLE1_1 />,
 	},
 ]);
 insert("Examples", "SAMPLE2", [
