@@ -10,12 +10,11 @@ interface CourseData {
 	};
 }
 
-export default function CourseItem(props: any) {
+export default function CourseItem(props: { course: CourseData }) {
 	const { course } = props;
 	return (
-		<div>
-			<h3>{course.title}</h3>
-			<p>{course.description}</p>
+		<div className="">
+			<div></div>
 		</div>
 	);
 }

@@ -30,7 +30,7 @@ module.exports = {
 					DEFAULT: "#373737",
 					highest: "#373737",
 					mid: "#686868",
-					low: "A0A0A0",
+					low: "#A0A0A0",
 				},
 				clears: {
 					DEFAULT: "#FFFFFF",
