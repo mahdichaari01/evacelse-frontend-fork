@@ -11,7 +11,7 @@ export interface ITestVariant {
 	element: React.ReactNode;
 }
 export const tests: ITest[] = [];
-export function insert(
+export function insertTest(
 	category: string,
 	name: string,
 	variants: ITestVariant[]

@@ -1,5 +1,5 @@
 import React from "react";
-import { insert } from "../../../../Testing/testing";
+import { insertTest } from "../../../../Testing/testing";
 import config from "../../../../config.json";
 import Option from "./Option";
 interface QCMData {
@@ -28,11 +28,11 @@ export default function QCM(props: QCMData) {
 		is_answered,
 	} = props;
 	return (
-		<div className="grid auto-rows-auto place-content-center gap-[2.6rem] p-4 md:p-[2.6rem]">
+		<div className="grid h-full auto-rows-auto place-content-center gap-[2.6rem] p-4 md:p-[2.6rem]">
 			<div className="flex h-fit justify-between">
 				<div className="h-fit w-fit rounded-sm bg-primary p-3 text-center font-medium text-base-100">
 					<span className="hidden md:inline ">Question </span>
-
+					<span className=" md:hidden ">Q </span>
 					<span>
 						{index}/{number_of_questions}
 					</span>
@@ -52,8 +52,8 @@ export default function QCM(props: QCMData) {
 					</span>
 				</button>
 			</div>
-			<p className="h-52 rounded bg-darks p-4 text-clears-tertiary md:h-40 md:p-8">
-				<div className="cleanScrollbar h-full overflow-y-scroll">{question}</div>
+			<p className="max- h-52 overflow-y-scroll rounded bg-darks  p-4 text-clears-tertiary md:h-40 md:p-8">
+				<p className="cleanScrollbar h-full overflow-y-scroll">{question}</p>
 			</p>
 			<div className="cleanScrollbar max-h-52 overflow-y-scroll pr-1">
 				<ul className="flex w-full flex-col gap-3">
@@ -86,7 +86,7 @@ export default function QCM(props: QCMData) {
 function NavButton(props: { children: React.ReactNode; onClick: () => void }) {
 	return (
 		<button
-			className="btn-primary btn-outline btn flex  h-fit w-fit flex-row  items-center justify-evenly gap-2 rounded-sm border-2 p-3 text-center font-medium md:w-40"
+			className="btn-outline btn-primary btn flex  h-fit w-fit flex-row  items-center justify-evenly gap-2 rounded-sm border-2 p-3 text-center font-medium md:w-40"
 			onClick={props.onClick}
 		>
 			{props.children}
@@ -94,7 +94,7 @@ function NavButton(props: { children: React.ReactNode; onClick: () => void }) {
 	);
 }
 
-insert("Exams", "QCM", [
+insertTest("Exams", "QCM", [
 	{
 		variant: "favourite",
 		element: (

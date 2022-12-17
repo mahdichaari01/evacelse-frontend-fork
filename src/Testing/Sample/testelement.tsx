@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-pascal-case */
 
 import React from "react";
-import { insert } from "../testing";
+import { insertTest } from "../testing";
 
 function SAMPLE1_1() {
 	return (
@@ -391,13 +391,13 @@ function SAMPLE2_3() {
 		</div>
 	);
 }
-insert("Examples", "SAMPLE1", [
+insertTest("Examples", "SAMPLE1", [
 	{
 		variant: "variant1",
 		element: <SAMPLE1_1 />,
 	},
 ]);
-insert("Examples", "SAMPLE2", [
+insertTest("Examples", "SAMPLE2", [
 	{ variant: "variant1", element: <SAMPLE2_1 /> },
 	{ variant: "variant2", element: <SAMPLE2_2 /> },
 	{ variant: "variant3", element: <SAMPLE2_3 /> },

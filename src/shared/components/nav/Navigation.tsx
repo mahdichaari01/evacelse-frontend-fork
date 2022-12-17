@@ -1,8 +1,8 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import Icon from "../Icon";
 import { NavLink } from "react-router-dom";
-import { insert } from "../../../Testing/testing";
+import { insertTest } from "../../../Testing/testing";
 interface INavItem {
 	to: string;
 	text: string;
@@ -48,23 +48,36 @@ export default function Navigation({
 					: "flex flex-col items-center justify-between"
 			}`}
 		>
-			<ul
-				className={`flex ${
-					direction === "horisontal"
-						? "w-full flex-row justify-evenly"
-						: "h-full w-full flex-col items-center justify-center gap-3"
-				} ${className}`}
-			>
+			<NavContainer direction={direction}>
 				{items.map((item, index) => (
 					<NavButton key={index} {...item} />
 				))}
-			</ul>
+			</NavContainer>
+
 			<LogoutButton />
 		</nav>
 	);
 }
+function NavContainer({
+	direction,
+	children,
+}: {
+	direction: "horisontal" | "vertical";
+	children: ReactNode;
+}) {
+	switch (direction) {
+		case "horisontal":
+			return <>{children}</>;
+		case "vertical":
+			return (
+				<ul className="flex h-full w-full flex-col items-center justify-center gap-3">
+					{children}
+				</ul>
+			);
+	}
+}
 
-insert("Navigation", "Navigation Button", [
+insertTest("Navigation", "Navigation Button", [
 	{
 		variant: "Default",
 		element: (
@@ -74,11 +87,11 @@ insert("Navigation", "Navigation Button", [
 		),
 	},
 ]);
-insert("Navigation", "Navigation", [
+insertTest("Navigation", "Navigation", [
 	{
 		variant: "horisontal",
 		element: (
-			<div className="m-4 flex w-[19rem] justify-center rounded bg-base-200 p-1">
+			<div className="m-4 flex w-[30rem] justify-center rounded bg-base-200 p-1">
 				<Navigation
 					items={[
 						{ to: "/Navigation/Default", text: "Home", icon: "home" },
@@ -98,10 +111,9 @@ insert("Navigation", "Navigation", [
 			<div className="m-4 flex h-[30rem] w-24 flex-col place-content-center items-center rounded bg-base-200 px-2 py-2">
 				<Navigation
 					items={[
-						{ to: "/Navigation/Default", text: "Home", icon: "home" },
-						{ to: "/Navigation/Default", text: "Library", icon: "book" },
-						{ to: "/Navigation/Default", text: "Shop", icon: "local_mall" },
-						{ to: "/Navigation/Default", text: "Favorite", icon: "star" },
+						{ to: "", text: "Home", icon: "home" },
+						{ to: "", text: "Shop", icon: "local_mall" },
+						{ to: "", text: "Favorite", icon: "star" },
 					]}
 					direction="vertical"
 				/>

@@ -1,4 +1,4 @@
-import { insert } from "../../../../Testing/testing";
+import { insertTest } from "../../../../Testing/testing";
 
 export default function Option({
 	index,
@@ -36,7 +36,7 @@ export default function Option({
 		</li>
 	);
 }
-insert("Exams", "QCMOption", [
+insertTest("Exams", "QCMOption", [
 	{
 		variant: "red",
 		element: (

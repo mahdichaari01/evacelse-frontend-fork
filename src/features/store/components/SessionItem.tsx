@@ -1,4 +1,4 @@
-import { insert } from "../../../Testing/testing";
+import { insertTest } from "../../../Testing/testing";
 
 interface SessionData {
 	title: string;
@@ -91,7 +91,7 @@ function SessionItemButton(props: {
 	);
 }
 
-insert("StoreComponents", "SessionItem", [
+insertTest("StoreComponents", "SessionItem", [
 	{
 		variant: "default",
 		element: (

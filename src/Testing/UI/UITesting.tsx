@@ -1,4 +1,4 @@
-import "./sideeffects";
+import "../sideeffects";
 
 import ComponentDisplay from "./components/ComponentDisplay";
 import SideBar from "./components/SideBar";
