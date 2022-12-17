@@ -53,6 +53,7 @@
     ]
   },
   "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.4.2",
     "autoprefixer": "^10.4.13",
     "babel-plugin-named-exports-order": "^0.0.2",
     "postcss": "^8.4.19",

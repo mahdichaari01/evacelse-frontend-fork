@@ -32,7 +32,7 @@ export default function SessionItem(props: {
 				)}
 			</div>
 			<div className="col-start-1 col-end-3 row-start-2 row-end-3 h-fit ">
-				<div className="w-ful bg-base-300l flex flex-row items-center justify-between rounded-sm bg-base-300 py-5 px-2 text-xs text-darks-low">
+				<div className="flex w-full flex-row items-center justify-between rounded-sm bg-base-300 py-5 px-2 text-xs text-darks-low">
 					<span className="flex items-center">
 						<span className="material-symbols-rounded font-extralight">
 							description

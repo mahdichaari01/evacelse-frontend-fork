@@ -12,5 +12,10 @@
             "previous": "précédent",
             "verify": "verifier la résponse"
         }
+    },
+    "progressRanges": {
+        "30": "error",
+        "60": "warning",
+        "100": "primary"
     }
 }
