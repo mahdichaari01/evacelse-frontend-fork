@@ -6,10 +6,12 @@ export function CourseItem({
 	group = "courses",
 	course,
 	active = false,
+	onChange,
 }: {
 	group?: string;
 	course: courseData;
 	active?: boolean;
+	onChange?: ChangeEventHandler<HTMLInputElement>;
 }) {
 	return (
 		<label>
@@ -19,9 +21,10 @@ export function CourseItem({
 				value={course.id}
 				checked={active}
 				className="hidden"
+				onChange={onChange}
 			/>
 			<div
-				className={`flex flex-row items-center justify-between gap-4 rounded bg-base-200 px-4 py-5 ${
+				className={`flex flex-row items-center justify-between gap-4 rounded bg-base-200 px-4 py-5 hover:brightness-75 ${
 					active ? "bg-darks text-white" : ""
 				}`}
 			>
@@ -144,7 +147,7 @@ function TextInput({
 			{label}
 			<input
 				className="input w-full max-w-xs"
-				defaultValue={value}
+				value={value}
 				type="text"
 				onChange={onChange}
 			/>
@@ -168,7 +171,6 @@ function NumberInput({
 				type="number"
 				onChange={onChange}
 				value={value}
-				defaultValue={value}
 			/>
 		</label>
 	);
@@ -188,7 +190,7 @@ function CheckboxInput({
 			{label}
 			<input
 				type="checkbox"
-				defaultChecked={value}
+				checked={value}
 				onChange={onChange}
 				className="checkbox"
 			/>
@@ -209,7 +211,7 @@ function ProgressInput({
 		<label>
 			{label}
 			<input
-				defaultValue={value}
+				value={value}
 				type="range"
 				min="0"
 				max="100"

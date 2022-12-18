@@ -7,3 +7,4 @@ import "../shared/layout/Layout";
 import "../features/library/components/CourseItem";
 import "../features/examen/components/browsing/CourseList";
 import "../features/examen/components/browsing/CourseItem";
+import "../shared/components/Inputs/Inputs";
