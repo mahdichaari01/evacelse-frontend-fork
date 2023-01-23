@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"@craco/craco": "^7.0.0",
 		"@headlessui/react": "^1.7.7",
 		"@tailwindcss/line-clamp": "^0.4.2",
 		"@testing-library/jest-dom": "^5.16.5",
@@ -23,9 +24,9 @@
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
+		"start": "craco start",
+		"build": "craco build",
+		"test": "craco test",
 		"eject": "react-scripts eject"
 	},
 	"eslintConfig": {
@@ -61,5 +62,6 @@
 		"*.{js,jsx,ts,tsx,json,css,md}": [
 			"prettier --write"
 		]
-	}
+	},
+	"cracoConfig": "craco.config.js"
 }
