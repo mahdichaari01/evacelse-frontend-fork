@@ -8,3 +8,5 @@ import "../features/library/components/CourseItem";
 import "../features/examen/components/browsing/CourseList";
 import "../features/examen/components/browsing/CourseItem";
 import "../shared/components/Inputs/Inputs";
+import "../features/store/components/CartItem.tsx";
+import "../features/store/components/EmptyCart.tsx";

@@ -1,6 +1,6 @@
 import { insertTest } from "../../../Testing/testing";
 
-interface SessionData {
+export interface SessionData {
 	title: string;
 	price: number;
 	content: {
