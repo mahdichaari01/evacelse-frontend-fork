@@ -2,7 +2,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+html,
+body {
+	height: 100vh;
+	height: calc(var(--vh, 1vh) * 100);
+	min-height: 630px;
+}
 .material-symbols-rounded {
 	font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 200, "opsz" 40;
 }
