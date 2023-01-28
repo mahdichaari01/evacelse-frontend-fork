@@ -1,4 +1,4 @@
-import { insertTest } from "../../../../Testing/testing";
+import React from "react";
 
 export default function Option({
 	index,
@@ -36,34 +36,3 @@ export default function Option({
 		</li>
 	);
 }
-insertTest("Exams", "QCMOption", [
-	{
-		variant: "red",
-		element: (
-			<Option
-				index={3}
-				content="Une coloration de Gram du liquide sérosanguinolent qui s'échappe de la plaie contient des polynucléaires neutrophiles"
-				color="red"
-			/>
-		),
-	},
-	{
-		variant: "green",
-		element: (
-			<Option
-				index={3}
-				content="Une coloration de Gram du liquide sérosanguinolent qui s'échappe de la plaie contient des polynucléaires neutrophilesUne coloration de Gram du liquide sérosanguinolent qui s'échappe de la plaie contient des polynucléaires neutrophilesUne coloration de Gram du liquide sérosanguinolent qui s'échappe de la plaie contient des polynucléaires neutrophilesUne coloration de Gram du liquide sérosanguinolent qui s'échappe de la plaie contient des polynucléaires neutrophiles"
-				color="green"
-			/>
-		),
-	},
-	{
-		variant: "normal",
-		element: (
-			<Option
-				index={25}
-				content="Une coloration de Gram du liquide sérosanguinolent qui s'échappe de la plaie contient des polynucléaires neutrophiles"
-			/>
-		),
-	},
-]);

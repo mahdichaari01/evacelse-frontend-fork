@@ -2,7 +2,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-	content: ["./src/**/*.{js,jsx,ts,tsx}"],
+	content: ["./src/**/*.{js,jsx,ts,tsx,stories.tsx}"],
 	theme: {
 		borderRadius: {
 			...defaultTheme.borderRadius,
@@ -45,6 +45,7 @@ module.exports = {
 		require("daisyui"),
 		require("@tailwindcss/line-clamp"),
 		require("@tailwindcss/forms"),
+		require("@headlessui/tailwindcss")({ prefix: "ui" }),
 	],
 	daisyui: {
 		styled: true,
