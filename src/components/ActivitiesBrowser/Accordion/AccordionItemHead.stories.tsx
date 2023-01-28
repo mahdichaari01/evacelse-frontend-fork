@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import React, { useState } from "react";
+import React from "react";
 
-import { AccordionItemHead } from "../AccordionItemHead";
+import { AccordionItemHead } from "./AccordionItemHead";
 
 export default {
 	title: "Components/ActivitiesBrowser/Accordion/AccordionItemHead",

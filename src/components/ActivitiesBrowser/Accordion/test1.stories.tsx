@@ -1,17 +1,17 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import React, { useState } from "react";
 
-import { AccordionItemHead } from "../AccordionItemHead";
-import { AccordionItemBody } from "../AccordionItemBody";
-
+import { AccordionItemHead } from "./AccordionItemHead";
+import { AccordionItemBody } from "./AccordionItemBody";
+import { AccordionContainer } from "./AccordionContainer";
 function Test() {
 	const [currentOpen, setCurrentOpen] = useState(0);
 	return (
-		<div>
+		<AccordionContainer>
 			{[0, 1, 2, 3].map((id) => (
-				<div key={id}>
+				<React.Fragment key={id}>
 					<AccordionItemHead
-						title="QCM"
+						title={id === 0 ? "QCM" : id === 1 ? "QROC" : "Cas Clinique"}
 						questions={10}
 						isActive={currentOpen === id}
 						onClick={() => {
@@ -33,16 +33,16 @@ function Test() {
 							adipisicing mollit nostrud.
 						</div>
 					</AccordionItemBody>
-				</div>
+				</React.Fragment>
 			))}
-		</div>
+		</AccordionContainer>
 	);
 }
 
 export default {
 	title: "Components/ActivitiesBrowser/Accordion/Test",
 	component: Test,
-};
+} as ComponentMeta<typeof Test>;
 
 const Template: ComponentStory<typeof Test> = (args) => {
 	return <Test />;

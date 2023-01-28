@@ -1,6 +1,6 @@
 import React from "react";
 import { activitiesIcons } from "@/assets";
-import { Icon } from "../Elements";
+import { Icon } from "@/components";
 
 export function AccordionItemHead(props: {
 	title: "QCM" | "QROC" | "Cas Clinique";
@@ -10,7 +10,7 @@ export function AccordionItemHead(props: {
 }) {
 	return (
 		<div
-			className={`w-full rounded transition-all h-20 px-5 py-4 flex cursor-pointer flex-row justify-between items-center ${
+			className={`w-full mb-2 rounded transition-all h-20 px-5 py-4 flex cursor-pointer flex-row justify-between items-center ${
 				props.isActive ? "bg-darks text-white" : "bg-clears text-darks"
 			}`}
 			onClick={props.onClick}
