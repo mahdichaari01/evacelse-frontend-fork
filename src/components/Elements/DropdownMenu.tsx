@@ -5,13 +5,14 @@ export function DropdownMenu(
 		header: React.ReactNode;
 		className?: string;
 		top?: boolean;
+		end?: boolean;
 	}>
 ) {
 	return (
 		<div
-			className={`dropdown ${props.top ? "dropdown-top" : ""} w-full h-full ${
-				props.className
-			}`}
+			className={`dropdown ${props.top ? "dropdown-top" : ""} ${
+				props.end ? "dropdown-end" : ""
+			} w-full h-full ${props.className}`}
 		>
 			<label tabIndex={0} className="block h-full w-full">
 				{props.header}
