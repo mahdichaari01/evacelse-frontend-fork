@@ -31,7 +31,7 @@ const Template: ComponentStory<typeof ScrollableBox> = (args) => (
 export const Story = Template.bind({});
 Story.args = {
 	children: (
-		<div>
+		<div className="">
 			Elit aute voluptate do aliqua pariatur fugiat in. Incididunt anim non
 			proident ut tempor deserunt occaecat labore irure ipsum ad ipsum sint. Est
 			minim et reprehenderit enim dolore in aliquip consectetur. Ad cupidatat

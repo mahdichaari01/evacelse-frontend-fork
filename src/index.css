@@ -11,43 +11,7 @@ body {
 	height: calc(var(--vh, 1vh) * 100);
 	min-height: 630px;
 }
-.scrollboxShadows {
-	overflow: auto;
-	width: 200px;
-	max-height: 200px;
-	margin: 50px auto;
 
-	background:
-		/* Shadow covers */ linear-gradient(
-			white 30%,
-			rgba(255, 255, 255, 0)
-		),
-		linear-gradient(rgba(255, 255, 255, 0), white 70%) 0 100%,
-		/* Shadows */
-			radial-gradient(50% 0, farthest-side, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)),
-		radial-gradient(50% 100%, farthest-side, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0))
-			0 100%;
-	background:
-		/* Shadow covers */ linear-gradient(
-			white 30%,
-			rgba(255, 255, 255, 0)
-		),
-		linear-gradient(rgba(255, 255, 255, 0), white 70%) 0 100%,
-		/* Shadows */
-			radial-gradient(farthest-side at 50% 0, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)),
-		radial-gradient(
-				farthest-side at 50% 100%,
-				rgba(0, 0, 0, 0.2),
-				rgba(0, 0, 0, 0)
-			)
-			0 100%;
-	background-repeat: no-repeat;
-	background-color: white;
-	background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
-
-	/* Opera doesn't support this in the shorthand */
-	background-attachment: local, local, scroll, scroll;
-}
 .material-symbols-rounded {
 	font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 200, "opsz" 40;
 }
@@ -78,4 +42,45 @@ body {
 
 .cleanScrollbar::-webkit-scrollbar-button {
 	visibility: hidden;
+}
+
+.shadows {
+	position: absolute;
+	height: 30px;
+	width: 100%;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	--intensity: 0.25;
+	opacity: 0;
+	transition: all 0.08s linear;
+}
+.topShadow {
+	top: 0;
+	left: 0;
+	background: radial-gradient(
+		ellipse at top,
+		rgba(0, 0, 0, var(--intensity)) 0%,
+		rgba(0, 0, 0, 0.1) 50%,
+		rgba(0, 0, 0, 0) 80%
+	);
+}
+
+.bottomShadow {
+	bottom: 0;
+	left: 0;
+	background: radial-gradient(
+		ellipse at bottom,
+		rgba(0, 0, 0, var(--intensity)) 0%,
+		rgba(0, 0, 0, 0.1) 50%,
+		rgba(0, 0, 0, 0) 80%
+	);
+}
+
+.show {
+	opacity: 1;
+	height: 30px;
+}
+.hide {
+	opacity: 0;
+	height: 0;
 }
