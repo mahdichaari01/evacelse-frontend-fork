@@ -4,7 +4,7 @@ import React from "react";
 import { EmptyCart } from "../EmptyCart";
 
 export default {
-	title: "Components/Elements/EmptyCart",
+	title: "Elements/EmptyCart",
 	component: EmptyCart,
 	args: {},
 } as ComponentMeta<typeof EmptyCart>;

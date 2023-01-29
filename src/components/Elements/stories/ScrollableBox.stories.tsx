@@ -4,7 +4,7 @@ import React from "react";
 import { ScrollableBox } from "../ScrollableBox";
 
 export default {
-	title: "Components/Elements/ScrollableBox",
+	title: "Elements/ScrollableBox",
 	component: ScrollableBox,
 	args: {
 		name: "string",

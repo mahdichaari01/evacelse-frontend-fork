@@ -4,7 +4,7 @@ import React from "react";
 import { Icon } from "../Icon";
 
 export default {
-	title: "Components/Elements/Icon",
+	title: "Elements/Icon",
 	component: Icon,
 	args: {
 		name: "string",

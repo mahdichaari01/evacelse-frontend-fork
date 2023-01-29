@@ -20,7 +20,7 @@ function Test() {
 						}}
 					/>
 					<AccordionItemBody isOpen={currentOpen === id}>
-						<div>
+						<div className="">
 							Fugiat nisi excepteur dolore aliquip voluptate magna consectetur tempor
 							dolor ut in aliquip. Tempor dolor eu magna non cillum veniam.
 							Exercitation enim duis exercitation eu aute nulla. Laborum eu labore
