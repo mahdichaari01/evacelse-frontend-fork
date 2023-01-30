@@ -36,7 +36,7 @@ module.exports = {
 					DEFAULT: "#FFFFFF",
 					primary: "#FFFFFF",
 					secondary: "#F5F5F7",
-					tertiary: "#EBEBEB",
+					tertiary: "#E0E0E0",
 				},
 			},
 		},
