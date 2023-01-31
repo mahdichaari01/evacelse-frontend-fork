@@ -1,7 +1,7 @@
 import React, { PropsWithChildren, ReactNode } from "react";
 import { createPortal } from "react-dom";
 
-export function Modal(
+export function ControlledModal(
 	props: PropsWithChildren<{
 		className?: string;
 		name: string;

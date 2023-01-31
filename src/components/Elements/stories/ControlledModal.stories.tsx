@@ -1,11 +1,11 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import React from "react";
 
-import { Modal } from "../Modal";
+import { ControlledModal } from "../ControlledModal";
 
 export default {
 	title: "Elements/Modal",
-	component: Modal,
+	component: ControlledModal,
 	args: {
 		name: "modal1",
 		show: false,
@@ -19,9 +19,11 @@ export default {
 			</>
 		),
 	},
-} as ComponentMeta<typeof Modal>;
+} as ComponentMeta<typeof ControlledModal>;
 
-const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
+const Template: ComponentStory<typeof ControlledModal> = (args) => (
+	<ControlledModal {...args} />
+);
 
 export const Hidden = Template.bind({});
 Hidden.args = {};
