@@ -59,9 +59,8 @@ body {
 	left: 0;
 	background: radial-gradient(
 		ellipse at top,
-		rgba(0, 0, 0, var(--intensity)) 0%,
-		rgba(0, 0, 0, 0.1) 50%,
-		rgba(0, 0, 0, 0) 80%
+		rgba(21, 21, 23, var(--intensity)) 0%,
+		rgba(21, 21, 23, 0) 80%
 	);
 }
 
@@ -70,9 +69,8 @@ body {
 	left: 0;
 	background: radial-gradient(
 		ellipse at bottom,
-		rgba(0, 0, 0, var(--intensity)) 0%,
-		rgba(0, 0, 0, 0.1) 50%,
-		rgba(0, 0, 0, 0) 80%
+		rgba(21, 21, 23, var(--intensity)) 0%,
+		rgba(21, 21, 23, 0) 80%
 	);
 }
 
@@ -83,4 +81,30 @@ body {
 .hide {
 	opacity: 0;
 	height: 0;
+}
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeout {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+.fadein {
+	animation: fadein 0.2s;
+}
+
+.fadeout {
+	animation: fadeout 0.2s;
 }

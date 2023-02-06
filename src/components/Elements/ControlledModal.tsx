@@ -6,6 +6,7 @@ export function ControlledModal(
 		className?: string;
 		name: string;
 		show?: boolean;
+		hide?: () => void;
 	}>
 ) {
 	const modalRoot = document.createElement("div");
@@ -31,7 +32,7 @@ export function ControlledModal(
 						className="modal-toggle"
 					/>
 
-					<div className="modal">
+					<div className="modal" onClick={props.hide}>
 						<div className={`modal-box relative ${props.className}`}>
 							{props.children}
 						</div>

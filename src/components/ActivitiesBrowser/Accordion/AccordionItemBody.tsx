@@ -1,6 +1,6 @@
 import Collapse from "@kunukn/react-collapse";
 import React from "react";
-
+import { ScrollableBox } from "@/components/Elements";
 export function AccordionItemBody(props: {
 	isOpen: boolean;
 	children: React.ReactNode;
