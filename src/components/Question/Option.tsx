@@ -1,46 +1,65 @@
 import React from "react";
+// the Option Component appearance changes depending on three props:
+// isSelected: if the option is selected by the user
+// isCorrect: if the option is the correct answer
+// isRevealed: if the answer is revealed
+//
+// Because of the different styles needed to be applied we're going to treat those boolean combinations as numbers and map each number to a color and outline
+
+const StyleMap = new Map<number, { index?: string; box?: string }>();
+
+StyleMap.set(2, {
+	index: "bg-darks text-clears",
+	box: "outline outline-2 outline-darks",
+});
+StyleMap.set(3, StyleMap.get(2) as any);
+
+StyleMap.set(5, {
+	index: "bg-success text-clears",
+	box: "outline outline-2 outline-success",
+});
+StyleMap.set(6, { index: "bg-error text-clears", box: "bg-error text-clears" });
+StyleMap.set(7, {
+	index: "bg-success text-clears",
+	box: "bg-success text-clears",
+});
+function toInt(isRevealed: boolean, isSelected: boolean, isCorrect: boolean) {
+	return (isRevealed ? 4 : 0) + (isSelected ? 2 : 0) + (isCorrect ? 1 : 0);
+}
 
 export default function Option({
 	index,
 	content,
-	color,
-	outline,
+	isSelected,
+	isCorrect,
+	isRevealed,
 	onClick,
 }: {
 	index: number;
 	content: string;
-	color?: "red" | "green" | "black";
-	outline?: boolean;
+	isSelected: boolean;
+	isCorrect: boolean;
+
+	isRevealed: boolean;
+
 	onClick?: () => void;
 }) {
 	return (
 		<li
 			onClick={onClick}
-			className="flex flex-row justify-start gap-4 drop-shadow-sm hover:drop-shadow-md cursor-pointer active:scale-[101%] transition-all duration-75 "
+			className="flex flex-row  justify-start gap-4 drop-shadow-sm hover:drop-shadow-md cursor-pointer active:scale-[101%] transition-all duration-75 "
 		>
 			<div
-				className={`flex w-12 place-content-center place-items-center rounded p-3 text-3xl font-bold	 ${
-					color
-						? color === "red"
-							? "bg-error text-clears"
-							: color === "black"
-							? "bg-darks text-clears"
-							: "bg-success text-clears"
-						: "bg-clears text-darks-highest"
-				} ${outline ? "outline outline-2 outline-darks" : ""}`}
+				className={`flex w-12 place-content-center place-items-center rounded p-3 text-3xl font-bold bg-clears text-darks ${
+					StyleMap.get(toInt(isRevealed, isSelected, isCorrect))?.index
+				}`}
 			>
 				<span>{String.fromCharCode(index + "A".charCodeAt(0))}</span>
 			</div>
 			<div
-				className={`flex w-full items-center justify-start rounded p-3 ${
-					color
-						? color === "red"
-							? "bg-error text-clears"
-							: color === "black"
-							? "bg-clears text-darks"
-							: "bg-success text-clears"
-						: "bg-clears text-darks-highest"
-				} ${outline ? "outline outline-2 outline-darks" : ""}`}
+				className={`flex w-full items-center justify-start rounded p-3 bg-clears text-darks ${
+					StyleMap.get(toInt(isRevealed, isSelected, isCorrect))?.box
+				}`}
 			>
 				<span>{content}</span>
 			</div>

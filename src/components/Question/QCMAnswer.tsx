@@ -17,23 +17,6 @@ export function QCMAnswer(
 			setSelected([...selected, index]);
 		}
 	};
-	const getOutline = (index: number) => {
-		if (selected.includes(index)) {
-			return true;
-		}
-		return false;
-	};
-	const getSelectedColor = (index: number) => {
-		if (reveal) {
-			if (correct_answer.includes(index)) {
-				return "green";
-			}
-			if (selected.includes(index)) {
-				return "red";
-			}
-		}
-		return selected.includes(index) ? "black" : undefined;
-	};
 	return (
 		<ScrollableBox className="w-full rounded">
 			<ul className="flex w-full flex-col gap-3">
@@ -42,8 +25,9 @@ export function QCMAnswer(
 						content={answer}
 						index={index}
 						onClick={reveal ? () => {} : toggleSelection(index)}
-						color={getSelectedColor(index)}
-						outline={getOutline(index)}
+						isSelected={selected.includes(index)}
+						isCorrect={correct_answer.includes(index)}
+						isRevealed={reveal}
 					/>
 				))}
 			</ul>
