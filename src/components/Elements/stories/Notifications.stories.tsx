@@ -9,7 +9,7 @@ function Test({ number }: { number: number }) {
 		<Notification>
 			<div className="stack">
 				{Array.from({ length: number }, (_, i) => (
-					<div className="alert shadow-lg fadein">
+					<div key={i} className="alert shadow-lg fadein">
 						<div>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"

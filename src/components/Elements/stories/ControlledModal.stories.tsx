@@ -9,6 +9,7 @@ export default {
 	args: {
 		name: "modal1",
 		show: false,
+		hide: () => {},
 		children: (
 			<>
 				<h3 className="text-lg font-bold">Congratulations random Internet user!</h3>

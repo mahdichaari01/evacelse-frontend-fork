@@ -6,7 +6,7 @@ export function QuestionStatement(props: { content: string }) {
 		<>
 			<ScrollableBox className="w-full shrink-0 max-h-[40%] text-white bg-darks rounded p-5">
 				{props.content.split("\n").map((p, index) => (
-					<p>{p}</p>
+					<p key={index}>{p}</p>
 				))}
 			</ScrollableBox>
 		</>

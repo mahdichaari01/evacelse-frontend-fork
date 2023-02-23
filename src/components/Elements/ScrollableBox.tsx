@@ -17,7 +17,6 @@ export function ScrollableBox(
 
 	const TopEntry = useIntersectionObserver(top, options);
 	const BottomEntry = useIntersectionObserver(bottom, options);
-	console.log(!!TopEntry?.isIntersecting, !!BottomEntry?.isIntersecting);
 	return (
 		<div
 			onClick={props.onClick}

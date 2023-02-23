@@ -22,6 +22,7 @@ export function QCMAnswer(
 			<ul className="flex w-full flex-col gap-3">
 				{answers.map((answer, index) => (
 					<Option
+						key={index}
 						content={answer}
 						index={index}
 						onClick={reveal ? () => {} : toggleSelection(index)}

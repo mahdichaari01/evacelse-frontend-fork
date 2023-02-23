@@ -29,6 +29,7 @@ export function ControlledModal(
 						type="checkbox"
 						checked={show}
 						id={props.name}
+						onChange={props.hide}
 						className="modal-toggle"
 					/>
 
