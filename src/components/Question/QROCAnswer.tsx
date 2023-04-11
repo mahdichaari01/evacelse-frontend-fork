@@ -38,22 +38,14 @@ export function QROCAnswer(props: {
 		props.userinput().then((res) => {
 			setValue(res);
 		});
-	}, [CustomInput]);
+	}, [CustomInput, props]);
 
 	return (
 		<div
-			className={`swap overflow-hidden cursor-default ${
+			className={`swap overflow-hidden w-full cursor-default ${
 				props.reveal ? "" : "swap-active"
 			}`}
 		>
-			<ScrollableBox className="w-full swap-off rounded p-4 items-start min-h-[15.625rem] bg-islamic-green text-white">
-				<div className="h-full flex flex-col">
-					<div className="text-3xl font-extrabold p-4">Réponse Correcte</div>
-					<div className="h-full flex flex-col justify-center text-lg">
-						<p>{props.answer}</p>
-					</div>
-				</div>
-			</ScrollableBox>
 			<ScrollableBox
 				onClick={setCaret}
 				className="w-full swap-on rounded p-4 items-start min-h-[15.625rem] bg-clears text-darks"
@@ -70,6 +62,16 @@ export function QROCAnswer(props: {
 				>
 					{value}
 				</span>
+			</ScrollableBox>
+			<ScrollableBox
+				className={`w-full swap-off rounded p-4 items-start min-h-[15.625rem] bg-islamic-green text-white ${
+					props.reveal ? "" : "hidden"
+				}`}
+			>
+				<div className="flex flex-col">
+					<div className="text-3xl font-extrabold p-4">Réponse Correcte</div>
+					<p className="text-lg">{props.answer}</p>
+				</div>
 			</ScrollableBox>
 		</div>
 	);

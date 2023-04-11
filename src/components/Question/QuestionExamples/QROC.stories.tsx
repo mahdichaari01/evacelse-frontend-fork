@@ -10,17 +10,15 @@ export default {
 		number_of_questions: 30,
 		index: 7,
 		question:
-			"Une femme de 33 ans présente une cellulite au dos  hello world ggggggggg",
+			"A la fin de la spermatogenèse, le nombre de spermatozoïdes obtenu est :",
 		answers: [
-			"Une coloration de Gram du liquide sérosanguinolent qui s'échappe de la plaie contient des polynucléaires neutrophiles",
-			"Une coloration de Gram du liquide sérosanguinolent qui s'échappe de la plaie contient des polynucléaires neutrophiles",
-			"Une coloration de Gram du liquide sérosanguinolent qui s'échappe de la plaie contient des polynucléaires neutrophiles",
-			"Une coloration de Gram du liquide sérosanguinolent qui s'échappe de la plaie contient des polynucléaires neutrophiles",
-			"Une coloration de Gram du liquide sérosanguinolent qui s'échappe de la plaie contient des polynucléaires neutrophiles",
-			"Une coloration de Gram du liquide sérosanguinolent qui s'échappe de la plaie contient des polynucléaires neutrophiles",
-			"Une coloration de Gram du liquide sérosanguinolent qui s'échappe de la plaie contient des polynucléaires neutrophiles",
+			"quatre fois le nombre de spermatocytes I",
+			"égal au nombre des spermatides I",
+			"le double du nombre de spermatocytes I",
+			"le double du nombre de spermatides",
+			"Je ne sais pas.",
 		],
-		correct_answer: [1, 3],
+		correct_answer: [2],
 
 		is_favorite: false,
 
