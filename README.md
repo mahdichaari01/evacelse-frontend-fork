@@ -5,7 +5,7 @@ This is the frontend for EvalSec, a platefom designed to help medical students i
 ## Technologies
 
 - This project was bootstrapped using **_create-react-app_** with the typescript template.
-- State Management : **Redux**
+- Data Fetching: Tanstack Query
 - UI Testing and documentation : **Storybook**
 - UI Libraries : **TailwindCSS** and **DaisyUI**
 - Routing : **React Router**
