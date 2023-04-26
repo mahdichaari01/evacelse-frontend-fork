@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, RouteObject } from "react-router-dom";
+import { Navigate, Outlet, RouteObject } from "react-router-dom";
 const TestLayout = () => {
 	return (
 		<div>
@@ -28,15 +28,8 @@ const PublicRoutes: RouteObject = {
 	children: [
 		{ path: "signup", index: true, element: <TestSignUp /> },
 		{ path: "signin", element: <TestSignIn /> },
+		{ path: "*", element: <Navigate to="/" /> },
 	],
 };
 
-// 	() => (
-// 	<Routes>
-// 		<Route element={<TestLayout />}>
-// 			<Route path="signup" element={<TestSignUp />} />
-// 			<Route path="signin" element={<TestSignIn />} />
-// 		</Route>
-// 	</Routes>
-// );
 export default PublicRoutes;

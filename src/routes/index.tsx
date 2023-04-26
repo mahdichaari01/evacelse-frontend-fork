@@ -1,22 +1,14 @@
 import React from "react";
-import {
-	createBrowserRouter,
-	RouteObject,
-	RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PublicRoutes from "@/routes/public";
 import ProtectedRoutes from "@/routes/protected";
 
 export const Router = ({ children }: React.PropsWithChildren) => {
-	const auth = true;
-	const [routes, setRoutes] = React.useState<RouteObject[]>(
-		auth ? [ProtectedRoutes] : [PublicRoutes]
-	);
-	React.useEffect(() => {
-		if (auth) setRoutes([ProtectedRoutes]);
-		else setRoutes([PublicRoutes]);
-	}, [auth]);
-	const router = createBrowserRouter(routes);
+	//temporary until auth logic is implemented
+	const [auth, setAuth] = React.useState(false);
+	//TODO: remove this line when auth logic is implemented
+	(window as any).setAuth = setAuth;
+	const router = createBrowserRouter(auth ? [ProtectedRoutes] : [PublicRoutes]);
 
 	return <RouterProvider router={router}></RouterProvider>;
 };
