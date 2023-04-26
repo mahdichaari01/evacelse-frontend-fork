@@ -12,12 +12,7 @@ export default {
 	},
 	decorators: [
 		(Story) => (
-			<div
-				style={{
-					width: "clamp(250px,50vw,800px)",
-					height: "clamp(400px,50vh,600px)",
-				}}
-			>
+			<div className="h-64">
 				<Story />
 			</div>
 		),

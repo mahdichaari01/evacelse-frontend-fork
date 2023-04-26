@@ -1,5 +1,5 @@
 import "@/tailwind.css";
-import { AppProvider } from "@/providers/app";
+import { AppProvider } from "@/providers";
 
 export const parameters = {
 	actions: { argTypesRegex: "^on[A-Z].*" },

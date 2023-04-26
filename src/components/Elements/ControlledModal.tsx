@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactNode } from "react";
+import React, { PropsWithChildren } from "react";
 import { createPortal } from "react-dom";
 
 export function ControlledModal(
@@ -19,7 +19,7 @@ export function ControlledModal(
 		return () => {
 			document.body.removeChild(modalRoot);
 		};
-	}, []);
+	}, [modalRoot]);
 	const show = props.show ?? true;
 	return (
 		<>

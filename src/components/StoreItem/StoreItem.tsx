@@ -37,19 +37,19 @@ export function StoreItem(props: {
 							name="description"
 							className="text-[.625rem] sm:text-base font-extralight"
 						></Icon>
-						<span className="mr-[.0625rem] font-medium">{data.content.cours}</span>
+						<span className="mr-[.0625rem] font-bold">{data.content.cours}</span>
 						certif
 					</span>
 					<span>
 						<span className="mr-1">
-							<span className="mr-[.0625rem] font-medium">{data.content.qcm}</span>QCM
+							<span className="mr-[.0625rem] font-bold">{data.content.qcm}</span>QCM
 						</span>
 						<span className="mr-1">
-							<span className="mr-[.0625rem] font-medium">{data.content.qroc}</span>
+							<span className="mr-[.0625rem] font-bold">{data.content.qroc}</span>
 							QROC
 						</span>
 						<span>
-							<span className="mr-[.0625rem] font-medium">
+							<span className="mr-[.0625rem] font-bold">
 								{data.content.casClinique}
 							</span>
 							Cas Clinique
