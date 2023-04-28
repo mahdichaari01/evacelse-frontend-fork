@@ -1,5 +1,3 @@
-import { configureAuth } from "react-query-auth";
-
 import {
 	loginWithEmailAndPassword,
 	getUser,
@@ -7,7 +5,6 @@ import {
 	UserResponse,
 	LoginCredentialsDTO,
 	RegisterCredentialsDTO,
-	AuthUser,
 } from "@/features/auth";
 import storage from "@/utils/storage";
 import { logout } from "@/features/auth/api/FakeBackend";
@@ -40,17 +37,9 @@ async function logoutFn(): Promise<void> {
 	await logout();
 }
 
-const authConfig = {
-	userFn,
-	loginFn,
-	registerFn,
-	logoutFn,
+export {
+	userFn as user,
+	loginFn as login,
+	registerFn as register,
+	logoutFn as logout,
 };
-
-export const { useUser, useLogin, useRegister, useLogout, AuthLoader } =
-	configureAuth<
-		AuthUser,
-		ErrorEvent,
-		LoginCredentialsDTO,
-		RegisterCredentialsDTO
-	>(authConfig);

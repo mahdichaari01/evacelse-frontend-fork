@@ -17,7 +17,6 @@ export const useMediaQuery = (screen: keyof typeof sizes) => {
 		}
 		const listener = () => {
 			setMatches(media.matches);
-			console.log(media.matches);
 		};
 		window.addEventListener("resize", listener);
 		return () => window.removeEventListener("resize", listener);

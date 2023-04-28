@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { useLogin } from "@/lib/auth";
-import { useNavigate } from "react-router-dom";
 import {
 	FormControl,
 	Box,
@@ -11,20 +9,13 @@ import {
 	Flex,
 	Spacer,
 } from "@chakra-ui/react";
+import { useLogin } from "@/lib/authContext";
 export const Login = () => {
-	const navigate = useNavigate();
-	const { mutateAsync, isLoading, isSuccess } = useLogin();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	if (isSuccess) {
-		setTimeout(() => {
-			navigate("/");
-		}, 1000);
-		return <Box>Login Sucessful</Box>;
-	}
+	const { isLoading, error, login } = useLogin();
 
 	//remove after debugging
-	(window as any).mutate = mutateAsync;
 	return (
 		<Box className="outline-4 outline-black outline p-7 rounded w-fit m-2">
 			<Heading size={"lg"} className="mb-3">
@@ -33,7 +24,7 @@ export const Login = () => {
 			<form
 				onSubmit={(e) => {
 					e.preventDefault();
-					mutateAsync({ email, password });
+					login({ email, password });
 				}}
 			>
 				<Flex direction={"column"} gap={"8px"}>

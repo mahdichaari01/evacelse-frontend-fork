@@ -1,4 +1,4 @@
-import { useRegister } from "@/lib/auth";
+import { useRegister } from "@/lib/authContext";
 import {
 	Box,
 	Button,
@@ -10,24 +10,15 @@ import {
 	Spacer,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
-	const { mutateAsync, isLoading, isSuccess } = useRegister();
-	const navigate = useNavigate();
-	if (isSuccess) {
-		setTimeout(() => {
-			navigate("/");
-		}, 1000);
-		return <Box>Registration Sucessful</Box>;
-	}
 
-	//remove after debugging
-	(window as any).mutate = mutateAsync;
+	const { isLoading, error, register } = useRegister();
+
 	return (
 		<Box className="outline-4 outline-black outline p-7 rounded w-fit m-2">
 			<Heading size={"lg"} className="mb-3">
@@ -36,7 +27,7 @@ export const Register = () => {
 			<form
 				onSubmit={async (e) => {
 					e.preventDefault();
-					await mutateAsync({ email, password, firstName, lastName });
+					await register({ email, password, firstName, lastName });
 				}}
 			>
 				<Flex direction={"column"} gap={"8px"}>

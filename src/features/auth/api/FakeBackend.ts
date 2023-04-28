@@ -34,7 +34,7 @@ class UsersDB implements Repository<string, Account> {
 			this.db = new Map<string, Account>();
 			this.persist();
 		}
-		if (currentAccount) {
+		if (!!currentAccount) {
 			this.currentAccount = JSON.parse(currentAccount);
 		}
 
@@ -42,11 +42,12 @@ class UsersDB implements Repository<string, Account> {
 	}
 	persist() {
 		window.localStorage.setItem(this.key, serilizeMap(this.db));
-		window.localStorage.setItem(
-			this.currentAccountKey,
-			JSON.stringify(this.currentAccount)
-		);
-		console.log("persisted", this.db);
+		if (this.currentAccount)
+			window.localStorage.setItem(
+				this.currentAccountKey,
+				JSON.stringify(this.currentAccount)
+			);
+		else window.localStorage.removeItem(this.currentAccountKey);
 	}
 	listAll() {
 		return Array.from(this.db.values());
@@ -63,7 +64,6 @@ class UsersDB implements Repository<string, Account> {
 	}
 	add(entity: Account) {
 		this.db.set(entity.user.email, entity);
-		console.log("added", entity);
 		this.persist();
 		return entity;
 	}
@@ -124,7 +124,6 @@ const FakeAuth = (DB: UsersDB) => {
 						password: data.password,
 					};
 					DB.add(account);
-					console.log("account", account);
 					const response: UserResponse = {
 						jwt: "fake-jwt-token",
 						user: account.user,
@@ -139,7 +138,7 @@ const FakeAuth = (DB: UsersDB) => {
 			setTimeout(() => {
 				if (DB.getCurrentAccount()) {
 					resolve(DB.getCurrentAccount() as AuthUser);
-				} else reject(null);
+				} else reject("No user is logged in");
 			}, TIMEOUT);
 		});
 	const logout = () =>

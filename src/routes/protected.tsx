@@ -1,38 +1,74 @@
 import React, { Suspense } from "react";
 import { Navigate, Outlet, RouteObject } from "react-router-dom";
 import { MainLayout } from "@/components";
-import { useLogout, useUser } from "@/lib/auth";
-import { Button, Heading } from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
+import { useLogout } from "@/lib/authContext";
+
+interface IRoute {
+	element: React.ReactNode;
+	index?: boolean;
+	path?: string;
+	name: string;
+	to: string;
+	icon: string;
+}
+const routes: IRoute[] = [];
+routes.push({
+	element: <h1>Home</h1>,
+	index: true,
+	to: "/",
+	name: "Home",
+	icon: "home",
+});
+routes.push({
+	element: <h1>Library</h1>,
+	path: "library/*",
+	to: "/library",
+	name: "Library",
+	icon: "book",
+});
+routes.push({
+	element: <h1>Favourites</h1>,
+	path: "favorites/*",
+	to: "/favorites",
+	name: "Favourites",
+	icon: "star",
+});
+routes.push({
+	element: <h1>Store</h1>,
+	path: "store/*",
+	to: "/store",
+	name: "Store",
+	icon: "local_mall",
+});
 
 const App = () => {
-	const { data } = useUser();
-	const { mutateAsync, isLoading } = useLogout();
-	if (!data) return <Navigate to="/login" replace={true} />;
-
+	const logout = useLogout();
 	return (
-		<MainLayout>
-			<Heading>Hello {data.firstName}</Heading>
-			<Button colorScheme="teal" onClick={() => mutateAsync({})}>
-				{isLoading ? "..." : "Logout"}
-			</Button>
-			<Suspense fallback={<div>Loading...</div>}>
-				<Outlet />
-			</Suspense>
+		<MainLayout
+			routes={routes}
+			logout={() => {
+				logout();
+			}}
+		>
+			<>
+				<Heading>Hello {}</Heading>
+				<Suspense fallback={<div>Loading...</div>}>
+					<Outlet />
+				</Suspense>
+			</>
 		</MainLayout>
 	);
 };
 //TODO: Add lazy loading, Suspense, and Error Boundaries
 //TODO: Add auth check to protected routes
 //TODO:
+
 const ProtectedRoutes: RouteObject = {
 	element: <App />,
 	path: "/",
 	children: [
-		{ index: true, element: <h1>Home</h1> },
-		{ path: "profile", element: <h1>Profile</h1> },
-		{ path: "library", element: <h1>Library</h1> },
-		{ path: "favorites", element: <h1>Favourites</h1> },
-		{ path: "store", element: <h1>Store</h1> },
+		...routes.map(({ path, element }) => ({ path, element })),
 		{ path: "*", element: <Navigate to="/" /> },
 	],
 };

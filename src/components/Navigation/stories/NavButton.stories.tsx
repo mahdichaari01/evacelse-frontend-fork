@@ -8,7 +8,7 @@ export default {
 	component: NavButton,
 	args: {
 		to: "/",
-		text: "Home",
+		name: "Home",
 		icon: "home",
 	},
 } as ComponentMeta<typeof NavButton>;
