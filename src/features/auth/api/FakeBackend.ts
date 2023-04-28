@@ -23,18 +23,29 @@ interface Account {
 class UsersDB implements Repository<string, Account> {
 	private key = "users";
 	private db: Map<string, Account>;
+	private currentAccount: AuthUser | undefined;
+	private currentAccountKey = "currentAccount";
 	constructor() {
 		let data = localStorage.getItem(this.key);
+		let currentAccount = localStorage.getItem(this.currentAccountKey);
 		if (data) {
 			this.db = deserializeMap<string, Account>(data);
 		} else {
 			this.db = new Map<string, Account>();
 			this.persist();
 		}
+		if (currentAccount) {
+			this.currentAccount = JSON.parse(currentAccount);
+		}
+
 		(window as any).usersDB = this;
 	}
 	persist() {
 		window.localStorage.setItem(this.key, serilizeMap(this.db));
+		window.localStorage.setItem(
+			this.currentAccountKey,
+			JSON.stringify(this.currentAccount)
+		);
 		console.log("persisted", this.db);
 	}
 	listAll() {
@@ -61,6 +72,13 @@ class UsersDB implements Repository<string, Account> {
 		this.persist();
 		return r;
 	}
+	setCurrentAccount(account: AuthUser | undefined) {
+		this.currentAccount = account;
+		this.persist();
+	}
+	getCurrentAccount() {
+		return this.currentAccount;
+	}
 }
 
 declare global {
@@ -69,7 +87,7 @@ declare global {
 	}
 }
 
-const FakeAuth = (DB: Repository<string, Account>) => {
+const FakeAuth = (DB: UsersDB) => {
 	const login = (data: LoginCredentialsDTO): Promise<UserResponse> =>
 		new Promise((resolve, reject) => {
 			setTimeout(() => {
@@ -84,7 +102,7 @@ const FakeAuth = (DB: Repository<string, Account>) => {
 						jwt: "fake-jwt-token",
 						user: account.user,
 					};
-					window.currentAccount = response;
+					DB.setCurrentAccount(response.user);
 					resolve(response);
 				}
 			}, TIMEOUT);
@@ -111,7 +129,7 @@ const FakeAuth = (DB: Repository<string, Account>) => {
 						jwt: "fake-jwt-token",
 						user: account.user,
 					};
-					window.currentAccount = response;
+					DB.setCurrentAccount(response.user);
 					resolve(response);
 				}
 			}, TIMEOUT);
@@ -119,15 +137,15 @@ const FakeAuth = (DB: Repository<string, Account>) => {
 	const getUser = () =>
 		new Promise<AuthUser>((resolve, reject) => {
 			setTimeout(() => {
-				if (window.currentAccount) {
-					resolve(window.currentAccount.user);
+				if (DB.getCurrentAccount()) {
+					resolve(DB.getCurrentAccount() as AuthUser);
 				} else reject(null);
 			}, TIMEOUT);
 		});
 	const logout = () =>
 		new Promise<void>((resolve, reject) => {
 			setTimeout(() => {
-				window.currentAccount = undefined;
+				DB.setCurrentAccount(undefined);
 				resolve();
 			}, TIMEOUT);
 		});

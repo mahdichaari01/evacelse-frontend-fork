@@ -1,6 +1,4 @@
-import { axios } from "@/lib/axios";
-
-import { AuthUser, UserResponse } from "../types";
+import { UserResponse } from "../types";
 import { register } from "./FakeBackend";
 
 export type RegisterCredentialsDTO = {

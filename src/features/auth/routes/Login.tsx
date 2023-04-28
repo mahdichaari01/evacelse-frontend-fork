@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLogin } from "@/lib/auth";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
 	FormControl,
 	Box,
@@ -12,13 +12,17 @@ import {
 	Spacer,
 } from "@chakra-ui/react";
 export const Login = () => {
-	const { mutateAsync, isError, isIdle, isLoading, isPaused, isSuccess } =
-		useLogin();
+	const navigate = useNavigate();
+	const { mutateAsync, isLoading, isSuccess } = useLogin();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	if (isSuccess) {
-		return <Navigate to="/" />;
+		setTimeout(() => {
+			navigate("/");
+		}, 1000);
+		return <Box>Login Sucessful</Box>;
 	}
+
 	//remove after debugging
 	(window as any).mutate = mutateAsync;
 	return (

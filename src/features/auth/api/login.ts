@@ -1,5 +1,3 @@
-import { axios } from "@/lib/axios";
-
 import { UserResponse } from "../types";
 import { login } from "./FakeBackend";
 

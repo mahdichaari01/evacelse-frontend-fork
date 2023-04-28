@@ -1,10 +1,20 @@
 import React, { Suspense } from "react";
 import { Navigate, Outlet, RouteObject } from "react-router-dom";
 import { MainLayout } from "@/components";
+import { useLogout, useUser } from "@/lib/auth";
+import { Button, Heading } from "@chakra-ui/react";
 
 const App = () => {
+	const { data } = useUser();
+	const { mutateAsync, isLoading } = useLogout();
+	if (!data) return <Navigate to="/login" replace={true} />;
+
 	return (
 		<MainLayout>
+			<Heading>Hello {data.firstName}</Heading>
+			<Button colorScheme="teal" onClick={() => mutateAsync({})}>
+				{isLoading ? "..." : "Logout"}
+			</Button>
 			<Suspense fallback={<div>Loading...</div>}>
 				<Outlet />
 			</Suspense>

@@ -1,4 +1,4 @@
-import Axios, { AxiosRequestConfig } from "axios";
+import Axios from "axios";
 import storage from "@/utils/storage";
 const API_URL = "http://localhost:3010";
 
