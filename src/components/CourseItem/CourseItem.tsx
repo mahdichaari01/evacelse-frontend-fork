@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, useState } from "react";
+import React, { ChangeEventHandler } from "react";
 
 import { CourseData } from "@/types";
 

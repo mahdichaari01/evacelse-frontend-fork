@@ -1,9 +1,10 @@
 import React from "react";
 import { AppProvider } from "./providers";
 import { Router } from "./routes";
-import { RouterProvider } from "react-router-dom";
+import { axios } from "./lib/axios";
 
 function App() {
+	(window as any).axios = axios;
 	return (
 		<AppProvider>
 			<Router />
