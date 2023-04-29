@@ -4,7 +4,6 @@ import { useMediaQuery } from "usehooks-ts";
 import {
 	Avatar,
 	AvatarBadge,
-	Box,
 	Button,
 	Flex,
 	Heading,

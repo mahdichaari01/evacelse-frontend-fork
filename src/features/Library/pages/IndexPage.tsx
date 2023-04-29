@@ -4,7 +4,7 @@ import { LibraryItem } from "../components";
 import { BrowsingLayout } from "../components/Layouts/BrowsingLayout";
 import { useQuery } from "@tanstack/react-query";
 export const IndexPage = () => {
-	const { data, isLoading, error } = useQuery({
+	const { data, isLoading } = useQuery({
 		queryKey: ["library", "all"],
 		queryFn: getChapters,
 		refetchOnWindowFocus: false,

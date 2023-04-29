@@ -13,7 +13,7 @@ import { useLogin } from "@/lib/authContext";
 export const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const { isLoading, error, login } = useLogin();
+	const { isLoading, login } = useLogin();
 
 	//remove after debugging
 	return (

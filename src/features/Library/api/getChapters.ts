@@ -1,4 +1,3 @@
-import { axios } from "@/lib/axios";
 import { randNumber } from "@ngneat/falso";
 
 //backend model definition

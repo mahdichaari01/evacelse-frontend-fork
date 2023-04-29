@@ -1,7 +1,6 @@
 import React, { Suspense } from "react";
 import { Navigate, Outlet, RouteObject } from "react-router-dom";
 import { MainLayout } from "@/components";
-import { Heading } from "@chakra-ui/react";
 import { useLogout } from "@/lib/authContext";
 import { Library } from "@/features/Library/routes";
 

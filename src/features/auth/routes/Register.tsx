@@ -17,7 +17,7 @@ export const Register = () => {
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 
-	const { isLoading, error, register } = useRegister();
+	const { isLoading, register } = useRegister();
 
 	return (
 		<Box className="outline-4 outline-black outline p-7 rounded w-fit m-2">
