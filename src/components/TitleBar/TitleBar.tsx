@@ -7,23 +7,14 @@ import { Icon } from "../Elements";
 import { useTitle } from "@/contexts/TitleContext";
 import {
 	Avatar,
-	AvatarBadge,
 	Center,
 	Drawer,
-	DrawerCloseButton,
 	DrawerContent,
 	DrawerOverlay,
 	Menu,
 	MenuButton,
 	MenuItem,
 	MenuList,
-	Popover,
-	PopoverArrow,
-	PopoverBody,
-	PopoverCloseButton,
-	PopoverContent,
-	PopoverHeader,
-	PopoverTrigger,
 	Spinner,
 	useDisclosure,
 } from "@chakra-ui/react";

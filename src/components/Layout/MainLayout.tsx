@@ -1,18 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import { LogoutButton, NavBar, NavButton } from "../Navigation/Navigation";
 import { useMediaQuery } from "usehooks-ts";
-import {
-	Avatar,
-	AvatarBadge,
-	Button,
-	Flex,
-	Heading,
-	Menu,
-	MenuButton,
-	MenuItem,
-	MenuList,
-	Spacer,
-} from "@chakra-ui/react";
+
 import { ScrollableBox } from "../Elements";
 import { TitleBar } from "../TitleBar/TitleBar";
 
