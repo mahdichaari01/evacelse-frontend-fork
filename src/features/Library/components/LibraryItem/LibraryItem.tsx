@@ -15,7 +15,12 @@ export function LibraryItem(props: {
 					<div className="w-10 flex items-center justify-center">
 						<FolderIcon className="" />
 					</div>
-					<p className="justify-self-start font-semibold text-xl">{props.name}</p>
+					<p
+						style={{ hyphens: "auto" }}
+						className="justify-self-start leading-none font-semibold text-xl overflow-ellipsis line-clamp-2 break-words	"
+					>
+						{props.name}
+					</p>
 				</div>
 				<div className="flex flex-col gap-3">
 					<div className="flex flex-row justify-start items-center gap-3">
