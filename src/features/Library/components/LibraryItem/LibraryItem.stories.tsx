@@ -4,7 +4,7 @@ import React from "react";
 import { LibraryItem } from "./LibraryItem";
 
 export default {
-	title: "Components/LibraryItem",
+	title: "Library/LibraryItem",
 	component: LibraryItem,
 	args: {
 		name: "Tochsologie",
