@@ -1,5 +1,6 @@
 import "@/tailwind.css";
 import { AppProvider } from "@/providers";
+import { BrowserRouter } from "react-router-dom";
 
 export const parameters = {
 	actions: { argTypesRegex: "^on[A-Z].*" },
@@ -12,8 +13,10 @@ export const parameters = {
 };
 export const decorators = [
 	(Story) => (
-		<AppProvider>
-			<Story />
-		</AppProvider>
+		<BrowserRouter>
+			<AppProvider>
+				<Story />
+			</AppProvider>
+		</BrowserRouter>
 	),
 ];

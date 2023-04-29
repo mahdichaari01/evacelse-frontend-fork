@@ -4,7 +4,7 @@ import React from "react";
 import { QCM } from "./QCM";
 
 export default {
-	title: "Components/QCM/Example/test2",
+	title: "Components/QCM",
 	component: QCM,
 	args: {
 		number_of_questions: 30,

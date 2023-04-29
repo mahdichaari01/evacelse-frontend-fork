@@ -49,7 +49,7 @@ const FakeData = FakeChapters.map((name, index) => ({
 	id: index.toString(),
 	name,
 	evaluationsCount: randNumber({ min: 10, max: 99 }),
-	sessionsCount: 0,
+	sessionsCount: randNumber({ min: 10, max: 99 }),
 }));
 
 export const getChapters = async () => {

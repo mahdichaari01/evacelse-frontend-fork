@@ -41,16 +41,16 @@ export function LibraryItem(props: {
 					</div>
 				</div>
 			</div>
-			<div className="btn-group drop-shadow rounded">
+			<div className="btn-group drop-shadow  rounded">
 				<button
-					className="btn w-1/2 normal-case text-sm font-medium py-2 leading-none min-h-fit h-[2.3125rem]"
+					className="btn w-1/2 normal-case text-sm font-medium py-2 leading-none min-h-fit h-[2.3125rem] text-primary"
 					onClick={props.onEvaluationClick}
 				>
 					Evaluations
 				</button>
 				<div className="h-full w-1 bg-[#7a7a7a]"></div>
 				<button
-					className="btn w-1/2 normal-case text-sm font-medium py-2 leading-none min-h-fit h-[2.3125rem]"
+					className="btn w-1/2 normal-case text-sm font-medium py-2 leading-none min-h-fit h-[2.3125rem] text-primary"
 					onClick={props.onSessionClick}
 				>
 					Sessions
