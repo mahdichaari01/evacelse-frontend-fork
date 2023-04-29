@@ -23,10 +23,13 @@ export function MainLayout(
 ) {
 	const match = useMediaQuery("(min-width: 768px)");
 	return (
-		<div className="w-screen h-screen min-h-[43.75rem] flex max-md:flex-col md:flex-row p-5 gap-5">
+		<div
+			className="w-screen min-h-[43.75rem] flex max-md:flex-col-reverse md:flex-row p-5 gap-5 bg-clears"
+			style={{ height: `${window.innerHeight}px` }}
+		>
 			<div
 				id="navContainer"
-				className="w-full h-fit md:h-full md:w-20 rounded bg-clears-secondary p-2"
+				className="w-full h-fit md:h-full md:w-20 rounded bg-clears-secondary shadow-inner p-2"
 			>
 				<NavBar
 					direction={match ? "vertical" : "horisontal"}
@@ -37,8 +40,11 @@ export function MainLayout(
 					))}
 				</NavBar>
 			</div>
-			<div className="max-md:bg-clears-secondary max-md:rounded w-full h-full flex flex-col gap-0 md:gap-5 ">
-				<div id="titleBarContainer" className="h-fit rounded bg-clears-secondary">
+			<div className="max-md:bg-clears-secondary max-md:rounded w-full h-full overflow-hidden flex flex-col gap-0 md:gap-5 ">
+				<div
+					id="titleBarContainer"
+					className="h-24 rounded bg-clears-secondary shadow-inner"
+				>
 					<Flex alignItems={"center"} className="p-5">
 						<Spacer />
 						<Heading size={"lg"}>Title Bar</Heading>
@@ -61,7 +67,10 @@ export function MainLayout(
 						</Menu>
 					</Flex>
 				</div>
-				<div id="main" className="h-full rounded bg-clears-secondary">
+				<div
+					id="main"
+					className="h-full flex-grow-0 overflow-hidden rounded bg-clears-secondary"
+				>
 					{props.children}
 				</div>
 			</div>

@@ -3,6 +3,7 @@ import { Navigate, Outlet, RouteObject } from "react-router-dom";
 import { MainLayout } from "@/components";
 import { Heading } from "@chakra-ui/react";
 import { useLogout } from "@/lib/authContext";
+import { Library } from "@/features/Library/routes";
 
 interface IRoute {
 	element: React.ReactNode;
@@ -21,7 +22,7 @@ routes.push({
 	icon: "home",
 });
 routes.push({
-	element: <h1>Library</h1>,
+	element: <Library />,
 	path: "library/*",
 	to: "/library",
 	name: "Library",
@@ -52,7 +53,6 @@ const App = () => {
 			}}
 		>
 			<>
-				<Heading>Hello {}</Heading>
 				<Suspense fallback={<div>Loading...</div>}>
 					<Outlet />
 				</Suspense>

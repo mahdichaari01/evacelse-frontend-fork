@@ -3,13 +3,13 @@ import { FolderIcon, EvaluationIcon, SessionIcon } from "./specialIcons";
 
 export function LibraryItem(props: {
 	name: string;
-	evalutationCount: number;
-	sessionCount: number;
+	evaluationsCount: number;
+	sessionsCount: number;
 	onEvaluationClick: () => void;
 	onSessionClick: () => void;
 }) {
 	return (
-		<div className="flex flex-col p-3 rounded-2xl bg-clears gap-3 w-[16.5rem]">
+		<div className="flex flex-col p-3 rounded-2xl bg-clears gap-3 w-full max-w-lg drop-shadow-md">
 			<div className="px-5 py-3 flex flex-col gap-4">
 				<div className="flex flex-row justify-start items-center gap-3">
 					<div className="w-10 flex items-center justify-center">
@@ -17,7 +17,7 @@ export function LibraryItem(props: {
 					</div>
 					<p
 						style={{ hyphens: "auto" }}
-						className="justify-self-start leading-none font-semibold text-xl overflow-ellipsis line-clamp-2 break-words	"
+						className="justify-self-start leading-none font-medium text-lg overflow-ellipsis line-clamp-2 break-words	"
 					>
 						{props.name}
 					</p>
@@ -28,7 +28,7 @@ export function LibraryItem(props: {
 							<EvaluationIcon />
 						</div>
 						<p className="justify-self-start text-xs text-[#727272]">
-							<span className="font-medium">{props.evalutationCount}</span> Evaluations
+							<span className="font-medium">{props.evaluationsCount}</span> Evaluations
 						</p>
 					</div>
 					<div className="flex flex-row justify-start items-center gap-3">
@@ -36,7 +36,7 @@ export function LibraryItem(props: {
 							<SessionIcon />
 						</div>
 						<p className="justify-self-start text-xs text-[#727272]">
-							<span className="font-medium">{props.sessionCount}</span> Sessions
+							<span className="font-medium">{props.sessionsCount}</span> Sessions
 						</p>
 					</div>
 				</div>
@@ -62,7 +62,7 @@ export function LibraryItem(props: {
 
 export function LibraryItemSkeleton() {
 	return (
-		<div className="flex flex-col p-3 rounded-2xl bg-clears gap-3 w-[16.5rem]">
+		<div className="flex flex-col p-3 rounded-2xl bg-clears gap-3 w-full max-w-lg">
 			<div className="px-5 py-3 flex flex-col gap-4 animate-pulse">
 				<div className="flex flex-row justify-start items-center gap-3">
 					<div className="w-10 flex items-center justify-center">

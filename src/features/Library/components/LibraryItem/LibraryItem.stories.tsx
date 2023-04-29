@@ -8,8 +8,8 @@ export default {
 	component: LibraryItem,
 	args: {
 		name: "Tochsologie",
-		evalutationCount: 2,
-		sessionCount: 30,
+		evaluationsCount: 2,
+		sessionsCount: 30,
 	},
 	argTypes: {
 		onEvaluationClick: { action: "clicked" },

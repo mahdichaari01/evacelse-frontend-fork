@@ -8,6 +8,7 @@ import {
 } from "@/features/auth";
 import storage from "@/utils/storage";
 import { logout } from "@/features/auth/api/FakeBackend";
+import { queryClient } from "./react-query";
 
 async function handleUserResponse(data: UserResponse) {
 	const { jwt, user } = data;
@@ -23,18 +24,21 @@ async function userFn() {
 async function loginFn(data: LoginCredentialsDTO) {
 	const response = await loginWithEmailAndPassword(data);
 	const user = await handleUserResponse(response);
+	queryClient.resetQueries();
 	return user;
 }
 
 async function registerFn(data: RegisterCredentialsDTO) {
 	const response = await registerWithEmailAndPassword(data);
 	const user = await handleUserResponse(response);
+	queryClient.resetQueries();
 	return user;
 }
 
 async function logoutFn(): Promise<void> {
 	storage.clearToken();
 	await logout();
+	queryClient.resetQueries();
 }
 
 export {

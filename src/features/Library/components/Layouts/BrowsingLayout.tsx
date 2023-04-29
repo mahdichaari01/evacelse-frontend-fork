@@ -4,9 +4,9 @@ export const BrowsingLayout = (
 	props: PropsWithChildren<{ loading?: boolean }>
 ) => {
 	return (
-		<div className="w-full h-full bg-clears-secondary rounded overflow-hidden">
+		<div className="w-full h-full bg-clears-secondary md:shadow-inner rounded overflow-hidden">
 			<ScrollableBox className="w-full h-full">
-				<div className=" p-7 flex gap-7 flex-wrap justify-center sm:justify-start flex-row">
+				<div className="py-11 px-7 sm:px-20 grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] justify-items-center gap-12">
 					{props.loading
 						? Array.from({ length: 4 }).map((_, i) => <LibraryItemSkeleton key={i} />)
 						: props.children}
