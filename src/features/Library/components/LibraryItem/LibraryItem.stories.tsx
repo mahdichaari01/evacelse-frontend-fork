@@ -7,21 +7,13 @@ export default {
 	title: "Components/LibraryItem",
 	component: LibraryItem,
 	args: {
-		data: {
-			id: 1,
-			title: "Amenotherapie dans la medecine",
-			progress: 45,
-			content: {
-				qcm: 45,
-				qroc: 45,
-				casClinique: 45,
-				cours: 45,
-			},
-		},
-		icon: <div></div>,
+		name: "Tochsologie",
+		evalutationCount: 2,
+		sessionCount: 30,
 	},
 	argTypes: {
-		onClick: { action: "onClick" },
+		onEvaluationClick: { action: "clicked" },
+		onSessionClick: { action: "clicked" },
 	},
 } as ComponentMeta<typeof LibraryItem>;
 

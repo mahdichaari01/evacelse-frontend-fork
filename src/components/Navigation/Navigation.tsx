@@ -14,7 +14,7 @@ function NavButton({ to, name: text, icon }: INavItem) {
 		<NavLink
 			className={({ isActive }) =>
 				`flex w-full max-w-[4.375rem] flex-col items-center justify-center gap-2 rounded-sm bg-transparent py-2 text-darks hover:bg-clears-tertiary active:bg-primary active:text-primary-content ${
-					isActive ? "bg-primary text-primary-content hover:bg-primary-focus" : ""
+					isActive ? "text-primary" : ""
 				}`
 			}
 			to={to}

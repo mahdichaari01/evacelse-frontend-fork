@@ -1,6 +1,6 @@
 export * from "./Elements";
 export * from "./StoreItem";
-export * from "./LibraryItem";
+export * from "../features/Library/components/LibraryItem";
 export * from "./CartItem";
 export * from "./Navigation";
 export * from "./CourseItem";
