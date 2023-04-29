@@ -24,7 +24,7 @@ export function ScrollableBox(
 			className={`relative overflow-hidden ${props.className}`}
 		>
 			<div
-				className={`z-50 shadows topShadow ${
+				className={`z-10 shadows topShadow ${
 					BottomEntry === undefined || TopEntry?.isIntersecting ? "hide" : "show "
 				}`}
 				aria-hidden

@@ -13,25 +13,41 @@ import {
 	MenuList,
 	Spacer,
 } from "@chakra-ui/react";
+import { ScrollableBox } from "../Elements";
+import { TitleBar } from "../TitleBar/TitleBar";
 
-export function MainLayout(
-	props: PropsWithChildren<{
-		logout: () => void;
-		routes: { to: string; name: string; icon: string }[];
-	}>
-) {
+type MainLayoutProps = PropsWithChildren<{
+	logout: () => void;
+	routes: { to: string; name: string; icon: string }[];
+}>;
+
+export function MainLayout(props: MainLayoutProps) {
 	const match = useMediaQuery("(min-width: 768px)");
+	return match ? <WideMainLayout {...props} /> : <NarrowMainLayout {...props} />;
+}
+
+const NarrowMainLayout = (props: MainLayoutProps) => {
 	return (
-		<div
-			className="w-screen min-h-[43.75rem] flex max-md:flex-col-reverse md:flex-row p-5 gap-5 bg-clears"
-			style={{ height: `${window.innerHeight}px` }}
-		>
+		<ScrollableBox className="w-screen h-screen bg-clears-secondary">
+			<div
+				id="menuBar"
+				className="sticky w-[90%] bg-clears h-fit rounded-full drop-shadow-md z-20 top-3 my-3 mx-auto overflow-hidden"
+			>
+				<TitleBar routes={props.routes} />
+			</div>
+			<div id="mainContent">{props.children}</div>
+		</ScrollableBox>
+	);
+};
+const WideMainLayout = (props: MainLayoutProps) => {
+	return (
+		<div className="w-screen h-screen min-h-[43.75rem] flex flex-row p-5 gap-5 bg-clears">
 			<div
 				id="navContainer"
-				className="w-full h-fit md:h-full md:w-20 rounded bg-clears-secondary shadow-inner p-2"
+				className="h-full w-20 rounded bg-clears-secondary shadow-inner p-2"
 			>
 				<NavBar
-					direction={match ? "vertical" : "horisontal"}
+					direction="vertical"
 					LogoutButton={<LogoutButton onClick={() => props.logout()} />}
 				>
 					{props.routes.map((route) => (
@@ -39,32 +55,12 @@ export function MainLayout(
 					))}
 				</NavBar>
 			</div>
-			<div className="max-md:bg-clears-secondary max-md:rounded w-full h-full overflow-hidden flex flex-col gap-0 md:gap-5 ">
+			<div className="w-full h-full overflow-hidden flex flex-col gap-0 md:gap-5 ">
 				<div
 					id="titleBarContainer"
 					className="h-24 rounded bg-clears-secondary shadow-inner"
 				>
-					<Flex alignItems={"center"} className="p-5">
-						<Spacer />
-						<Heading size={"lg"}>Title Bar</Heading>
-						<Spacer />
-						<Menu>
-							<MenuButton
-								as={Button}
-								rightIcon={
-									<Avatar boxSize={"1.875rem"}>
-										<AvatarBadge boxSize=".8125rem" bg="green.500" />
-									</Avatar>
-								}
-							>
-								User
-							</MenuButton>
-							<MenuList>
-								<MenuItem>Logout</MenuItem>
-								<MenuItem>Settings</MenuItem>
-							</MenuList>
-						</Menu>
-					</Flex>
+					<TitleBar />
 				</div>
 				<div
 					id="main"
@@ -75,4 +71,4 @@ export function MainLayout(
 			</div>
 		</div>
 	);
-}
+};

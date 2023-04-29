@@ -1,5 +1,20 @@
 import { extendTheme } from "@chakra-ui/react";
 export const theme = extendTheme({
+	components: {
+		Drawer: {
+			sizes: {
+				menu: {
+					dialog: {
+						maxWidth: "5rem",
+						borderRadius: ".625rem",
+						margin: "0.5rem",
+						overflow: "hidden",
+						paddingY: "0.5rem",
+					},
+				},
+			},
+		},
+	},
 	fonts: {
 		body: "Rubik, system-ui, sans-serif",
 		heading: "Rubik, serif",
