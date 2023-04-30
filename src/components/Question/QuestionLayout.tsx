@@ -7,8 +7,8 @@ export default function QuestionLayout(
 		number_of_questions: number;
 		index: number;
 		is_favorite: boolean;
-		next: To;
-		previous: To;
+		next?: To;
+		previous?: To;
 		verify: () => void;
 		attachment?: string;
 	}>
@@ -60,17 +60,25 @@ export default function QuestionLayout(
 				{props.children}
 			</div>
 			<div className="flex justify-between items-center w-full h-[4.125rem]">
-				<NavButton to={props.next}>
-					<span className="material-symbols-rounded">arrow_back_ios_new</span>
-					<span className="hidden md:inline">prècedant</span>
-				</NavButton>
+				{props.previous ? (
+					<NavButton to={props.previous}>
+						<span className="material-symbols-rounded">arrow_back_ios_new</span>
+						<span className="hidden md:inline">prècedant</span>
+					</NavButton>
+				) : (
+					<div className=" h-fit w-fit"></div>
+				)}
 				<button className="btn-primary btn" onClick={props.verify}>
 					<span>vérifier</span>
 				</button>
-				<NavButton to={props.previous}>
-					<span className="hidden md:inline">suivant</span>
-					<span className="material-symbols-rounded">arrow_forward_ios</span>
-				</NavButton>
+				{props.next ? (
+					<NavButton to={props.next}>
+						<span className="hidden md:inline">suivant</span>
+						<span className="material-symbols-rounded">arrow_forward_ios</span>
+					</NavButton>
+				) : (
+					<div className=" h-fit w-fit"></div>
+				)}
 			</div>
 		</div>
 	);

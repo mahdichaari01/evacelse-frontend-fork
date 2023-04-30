@@ -6,51 +6,23 @@ import { CourseItem } from "@/components";
 import { AccordionItemHead } from "@/components/ActivitiesBrowser/Accordion/AccordionItemHead";
 const testData = [
 	{
-		id: 1,
 		title: "Amenotherapie dans la medecine",
-		progress: 45,
-		content: {
-			qcm: 45,
-			qroc: 45,
-			casClinique: 45,
-			cours: 45,
-		},
+		to: "1",
 	},
 	{
-		id: 2,
 		title: "Amenotherapie dans la medecine",
-		progress: 45,
-		content: {
-			qcm: 90,
-			qroc: 45,
-			casClinique: 45,
-
-			cours: 45,
-		},
+		to: "2",
 	},
 	{
-		id: 3,
 		title: "Amenotherapie dans la medecine",
-		progress: 45,
-		content: {
-			qcm: 1,
-			qroc: 45,
-			casClinique: 45,
-			cours: 45,
-		},
+		to: "3",
 	},
 ];
 const TestingChild = () => {
-	const [active, setActive] = React.useState(testData[0].id);
 	return (
 		<div className="flex flex-col gap-2">
 			{testData.map((item) => (
-				<CourseItem
-					key={item.id}
-					active={active === item.id}
-					data={item}
-					onChange={() => setActive(item.id)}
-				/>
+				<CourseItem {...item} />
 			))}
 		</div>
 	);

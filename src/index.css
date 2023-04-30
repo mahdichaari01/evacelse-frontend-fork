@@ -4,7 +4,7 @@
 @tailwind utilities;
 @layer components {
 	.ui-part {
-		@apply rounded bg-clears-secondary shadow-inner overflow-hidden;
+		@apply rounded bg-clears-secondary shadow-inner overflow-hidden w-full h-full;
 	}
 }
 

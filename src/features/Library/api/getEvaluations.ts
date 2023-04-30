@@ -4,9 +4,9 @@
 
     chapter = relationship("Chapters", back_populates="evaluations")*/
 
-interface EvaluationResponse {
+export interface EvaluationResponse {
 	id: string;
-	name: string;
+	title: string;
 	chapterId: string;
 }
 
@@ -26,16 +26,26 @@ const FakeEvaluations = [
 	"Péritonites aiguës",
 ];
 
-const FakeData = FakeEvaluations.map((name, index) => ({
+const FakeData = FakeEvaluations.map((title, index) => ({
 	id: index.toString(),
-	name,
+	title,
 	chapterId: "0",
 }));
 
-export const getEvaluations = async (id: string) => {
+export const getEvaluations = async (id?: string) => {
+	if (!id) throw new Error("No id provided");
 	return new Promise<EvaluationResponse[]>((resolve) => {
 		setTimeout(() => {
 			resolve(FakeData);
+		}, 1000);
+	});
+};
+
+export const getEvaluation = async (id?: string) => {
+	if (!id) throw new Error("No id provided");
+	return new Promise<EvaluationResponse>((resolve) => {
+		setTimeout(() => {
+			resolve(FakeData.find((evaluation) => evaluation.id === id)!);
 		}, 1000);
 	});
 };

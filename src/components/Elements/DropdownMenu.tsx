@@ -6,6 +6,7 @@ export function DropdownMenu(
 		className?: string;
 		top?: boolean;
 		end?: boolean;
+		id?: string;
 	}>
 ) {
 	return (
