@@ -32,7 +32,7 @@ const FakeData = FakeEvaluations.map((name, index) => ({
 	chapterId: "0",
 }));
 
-export const getEvaluations = async () => {
+export const getEvaluations = async (id: string) => {
 	return new Promise<EvaluationResponse[]>((resolve) => {
 		setTimeout(() => {
 			resolve(FakeData);

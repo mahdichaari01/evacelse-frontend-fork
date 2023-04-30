@@ -24,7 +24,7 @@ export function CourseItem({
 				onChange={onChange}
 			/>
 			<div
-				className={`flex flex-row items-center justify-between gap-4 rounded bg-base-200 px-4 py-5 hover:brightness-75 ${
+				className={`flex flex-row items-center justify-between gap-4 rounded bg-clears px-4 py-5 hover:brightness-75 ${
 					active ? "bg-darks text-white" : ""
 				}`}
 			>
