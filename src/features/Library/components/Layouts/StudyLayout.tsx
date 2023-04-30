@@ -1,3 +1,5 @@
 import { PropsWithChildren } from "react";
 
-export const StudyLayout = (props: PropsWithChildren<{}>) => {};
+export const StudyLayout = (props: PropsWithChildren<{}>) => {
+	return;
+};

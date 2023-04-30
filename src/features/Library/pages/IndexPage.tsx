@@ -23,8 +23,8 @@ export const IndexPage = () => {
 					// name={chapter.name}
 					// evalutationsCount={chapter.evaluationsCount}
 					// sessionsCount={chapter.sessionsCount}
-					onSessionClick={() => navigate(`${chapter.id}/evaluations`)}
-					onEvaluationClick={() => navigate(`${chapter.id}/sessions`)}
+					onSessionClick={() => navigate(`${chapter.id}/sessions`)}
+					onEvaluationClick={() => navigate(`${chapter.id}/evaluations`)}
 				/>
 			))}
 		</BrowsingLayout>

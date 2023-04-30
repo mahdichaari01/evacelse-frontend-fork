@@ -20,7 +20,7 @@ const NarrowMainLayout = (props: MainLayoutProps) => {
 		<ScrollableBox className="w-screen h-screen bg-clears-secondary">
 			<div
 				id="menuBar"
-				className="sticky w-[90%] bg-clears h-fit rounded-full drop-shadow-md z-20 top-3 my-3 mx-auto overflow-hidden"
+				className="sticky w-[90%] bg-clears h-fit rounded-full drop-shadow z-20 top-3 my-3 mx-auto overflow-hidden"
 			>
 				<TitleBar routes={props.routes} />
 			</div>
@@ -31,10 +31,7 @@ const NarrowMainLayout = (props: MainLayoutProps) => {
 const WideMainLayout = (props: MainLayoutProps) => {
 	return (
 		<div className="w-screen h-screen min-h-[43.75rem] flex flex-row p-5 gap-5 bg-clears">
-			<div
-				id="navContainer"
-				className="h-full w-20 rounded bg-clears-secondary shadow-inner p-2"
-			>
+			<div id="navContainer" className="h-full w-20 ui-part p-2">
 				<NavBar
 					direction="vertical"
 					LogoutButton={<LogoutButton onClick={() => props.logout()} />}
@@ -44,17 +41,11 @@ const WideMainLayout = (props: MainLayoutProps) => {
 					))}
 				</NavBar>
 			</div>
-			<div className="w-full h-full overflow-hidden flex flex-col gap-0 md:gap-5 ">
-				<div
-					id="titleBarContainer"
-					className="h-24 rounded bg-clears-secondary shadow-inner"
-				>
+			<div className="w-full h-full overflow-hidden  flex flex-col gap-0 md:gap-5 ">
+				<div id="titleBarContainer" className="h-24 ui-part">
 					<TitleBar />
 				</div>
-				<div
-					id="main"
-					className="h-full flex-grow-0 overflow-hidden rounded bg-clears-secondary"
-				>
+				<div id="main" className="h-full flex-grow-0 overflow-hidden rounded ">
 					{props.children}
 				</div>
 			</div>
