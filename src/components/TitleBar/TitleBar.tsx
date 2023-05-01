@@ -46,7 +46,7 @@ const MobileTitleBar = (props: {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const drawerTriggerRef = useRef<HTMLButtonElement>(null);
 	return (
-		<div className="w-full h-full overflow-hidden flex flex-row justify-between items-center p-2">
+		<div className="w-full h-16 overflow-hidden flex flex-row justify-between items-center p-2">
 			<button
 				className="btn btn-circle text-darks-mid flex flex-row items-center"
 				onClick={() => navigate(-1)}

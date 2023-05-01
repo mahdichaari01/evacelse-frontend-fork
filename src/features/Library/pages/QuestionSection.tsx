@@ -19,7 +19,6 @@ export const QuestionsSection = () => {
 
 	const { isLoading, data } = useQuery<QuestionResponse>({
 		queryFn: () => {
-			console.log("something triggered this");
 			return getQuestion(questionID);
 		},
 		queryKey: ["question", questionID],
@@ -35,6 +34,7 @@ export const QuestionsSection = () => {
 	});
 	const [verify, toggleVerify] = useToggle(false);
 	useEffect(() => {
+		console.log("verify toggle");
 		if (verify ? !data?.isAnswered : data?.isAnswered) toggleVerify();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [questionID, data?.isAnswered]);
@@ -76,7 +76,7 @@ export const QuestionsSection = () => {
 				{isLoading ? (
 					<QuestionSkeleton />
 				) : (
-					<div className="md:ui-part">
+					<div className="h-full w-full overflow-hidden md:ui-part">
 						<QuestionLayout
 							index={index + 1}
 							is_favorite={isFavorite}

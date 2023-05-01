@@ -57,7 +57,7 @@ const DropdownList = ({
 					<BrowsingBarButton title={type} subtitle="click to change" arrow up />
 				</Box>
 			</PopoverTrigger>
-			<PopoverContent zIndex="50">
+			<PopoverContent>
 				<PopoverBody>
 					<div className="flex flex-col gap-3 bg-clears p-5">
 						{evaluations?.map((evaluation, index) => (

@@ -1,13 +1,12 @@
-import React, { ChangeEventHandler } from "react";
 import { NavLink } from "react-router-dom";
-import { CourseData } from "@/types";
+import { EvaluationIcon } from "../LibraryItem/specialIcons";
 
 export function CourseItem(props: { title: string; to: string }) {
 	return (
 		<NavLink
 			to={props.to}
 			className={({ isActive }) =>
-				`flex flex-row items-center justify-between gap-4 rounded bg-clears px-4 py-5 hover:brightness-75 ${
+				`flex flex-row items-center justify-start gap-4 rounded bg-clears px-4 py-5 hover:brightness-75 ${
 					isActive ? "bg-darks text-white" : ""
 				}`
 			}
@@ -35,14 +34,13 @@ export function CourseItem(props: { title: string; to: string }) {
 					<sup>%</sup>
 				</span>
 			</div> */}
-			<div>
-				<div className="mb-2 text-base font-medium leading-none line-clamp-2">
-					{props.title}
-				</div>
-				{/* <div className="text-[.6rem] font-medium">
+			<EvaluationIcon className="w-6 shrink-0" />
+			<div className="text-base font-medium leading-none line-clamp-2">
+				{props.title}
+			</div>
+			{/* <div className="text-[.6rem] font-medium">
 					{Object.values(data.content).reduce((a, b) => a + b, 0)} activités
 				</div> */}
-			</div>
 		</NavLink>
 	);
 }

@@ -2,14 +2,14 @@ import { PropsWithChildren } from "react";
 
 export const EvaluationPageLayout = (props: PropsWithChildren) => {
 	return (
-		<div className="w-full h-full grid grid-cols-3 grid-rows-[1fr,4.875rem] gap-2 lg:grid-cols-[20.375rem,1fr] lg:grid-rows-2 lg:gap-5 2xl:grid-cols-[20.25rem,1fr,20.25rem] 2xl:grid-rows-1">
+		<div className="w-full max-md:h-[calc(100vh-5.1rem)] h-full overflow-hidden max-md:px-3 max-md:pb-2 grid grid-cols-3 grid-rows-[1fr,3.3rem] gap-2 lg:grid-cols-[20.375rem,1fr] lg:grid-rows-2 lg:gap-5 2xl:grid-cols-[20.25rem,1fr,20.25rem] 2xl:grid-rows-1">
 			{props.children}
 		</div>
 	);
 };
 
 export const QuestionContainer = (props: PropsWithChildren) => (
-	<div className="col-start-1 col-end-4 row-start-1 lg:col-start-2 lg:row-end-3 lg:col-end-3 overflow-hidden">
+	<div className="h-full w-full col-start-1 col-end-4 row-start-1 lg:col-start-2 lg:row-end-3 lg:col-end-3 overflow-hidden">
 		{props.children}
 	</div>
 );

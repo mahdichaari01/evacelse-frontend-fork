@@ -1,20 +1,22 @@
 import { randBoolean, randLine, randNumber } from "@ngneat/falso";
 
-const FakeQuestions = Array.from({ length: 10 }, (_, i) => i + 1).map((id) => ({
-	id: id.toString(),
-	questionStatement: randLine({ lineCount: randNumber({ min: 1, max: 7 }) }),
-	answers: Array.from(
-		{ length: randNumber({ min: 3, max: 7 }) },
-		(_, i) => i + 1
-	).map((id) => ({
-		id,
-		answerStatement: randLine({ lineCount: randNumber({ min: 1, max: 4 }) })
-			.split("\n")
-			.join(),
-		isCorrect: randBoolean(),
-	})),
-	isAnswered: randBoolean(),
-}));
+const FakeQuestions = Array.from({ length: 100 }, (_, i) => i + 1).map(
+	(id) => ({
+		id: id.toString(),
+		questionStatement: randLine({ lineCount: randNumber({ min: 1, max: 7 }) }),
+		answers: Array.from(
+			{ length: randNumber({ min: 3, max: 7 }) },
+			(_, i) => i + 1
+		).map((id) => ({
+			id,
+			answerStatement: randLine({ lineCount: randNumber({ min: 1, max: 4 }) })
+				.split("\n")
+				.join(),
+			isCorrect: randBoolean(),
+		})),
+		isAnswered: true,
+	})
+);
 
 export interface QuestionsResponse {
 	id: string;
