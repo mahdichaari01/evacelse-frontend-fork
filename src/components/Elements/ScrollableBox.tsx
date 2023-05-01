@@ -29,14 +29,14 @@ export function ScrollableBox(
 				}`}
 				aria-hidden
 			></div>
-			<div className="overflow-y-scroll overflow-x-hidden p-1 cleanScrollbar h-full w-full">
+			<div className="overflow-y-scroll overflow-x-hidden px-1 cleanScrollbar h-full w-full">
 				<div ref={top} className="h-[.0625rem]"></div>
 				{props.children}
 				<div ref={bottom} className="h-[.0625rem]"></div>
 			</div>
 
 			<div
-				className={`z-50 shadows bottomShadow ${
+				className={`z-10 shadows bottomShadow ${
 					BottomEntry === undefined || BottomEntry.isIntersecting ? "hide" : "show "
 				} `}
 				aria-hidden

@@ -1,4 +1,63 @@
 import { extendTheme } from "@chakra-ui/react";
+
+import { popoverAnatomy as parts } from "@chakra-ui/anatomy";
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+
+const { definePartsStyle, defineMultiStyleConfig } =
+	createMultiStyleConfigHelpers(parts.keys);
+
+const baseStyle = definePartsStyle((props) => ({
+	popper: {
+		zIndex: 50,
+	},
+	content: {
+		boxShadow: "lg",
+		w: "330px",
+		overflowY: "auto",
+		overflowX: "hidden",
+		maxHeight: "80vh",
+		padding: "0",
+	},
+	body: {
+		padding: "0",
+	},
+}));
+
+const sizes = {
+	xl: definePartsStyle({
+		content: {
+			w: "400px",
+		},
+	}),
+	third: definePartsStyle({
+		content: {
+			w: "calc(100vw / 3)",
+		},
+	}),
+	fit: definePartsStyle({
+		content: {
+			w: "fit-content",
+		},
+	}),
+};
+
+const rounded = definePartsStyle({
+	content: {
+		borderRadius: ".625rem",
+		zIndex: 20,
+	},
+});
+
+const variants = {
+	rounded,
+};
+
+export const popoverTheme = defineMultiStyleConfig({
+	baseStyle,
+	variants,
+	sizes,
+});
+
 export const theme = extendTheme({
 	components: {
 		Drawer: {
@@ -14,6 +73,7 @@ export const theme = extendTheme({
 				},
 			},
 		},
+		Popover: popoverTheme,
 	},
 	fonts: {
 		body: "Rubik, system-ui, sans-serif",

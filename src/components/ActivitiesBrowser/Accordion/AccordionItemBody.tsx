@@ -10,9 +10,9 @@ export function AccordionItemBody(props: {
 		<Collapse
 			isOpen={props.isOpen}
 			overflowOnExpanded
-			className="overflow-y-scroll collapse-css-transition cleanScrollbar"
+			className="overflow-y-hidden collapse-css-transition cleanScrollbar mb-3"
 		>
-			<div>{props.children}</div>
+			{props.children}
 		</Collapse>
 		// <div
 		// 	className={`${props.className} transition-all h-fit duration-300 ${

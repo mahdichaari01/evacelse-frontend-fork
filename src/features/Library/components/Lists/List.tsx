@@ -1,8 +1,14 @@
-import { ComponentProps } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import { CourseItem } from "../CourseItem";
-import { DropdownMenu, ScrollableBox } from "@/components";
+import { ScrollableBox } from "@/components";
 import { BrowsingBarButton } from "@/components/ActivitiesBrowser";
+import {
+	Popover,
+	PopoverTrigger,
+	PopoverContent,
+	PopoverBody,
+	Box,
+} from "@chakra-ui/react";
 interface Evaluation {
 	title: string;
 	to: string;
@@ -12,8 +18,8 @@ export const List = (props: {
 	evaluations?: Evaluation[];
 	type: "Evaluations" | "Sessions";
 }) => {
-	const xl = useMediaQuery("(min-width:1280px)");
-	return xl ? <RegularList {...props} /> : <DropdownList {...props} />;
+	const lg = useMediaQuery("(min-width: 1024px)");
+	return lg ? <RegularList {...props} /> : <DropdownList {...props} />;
 };
 const RegularList = ({
 	evaluations,
@@ -45,18 +51,21 @@ const DropdownList = ({
 	type: "Evaluations" | "Sessions";
 }) => {
 	return (
-		<DropdownMenu
-			header={
-				<BrowsingBarButton title={type} subtitle="click to change" arrow up />
-			}
-			top
-			id="list"
-		>
-			<div className="flex flex-col gap-3">
-				{evaluations?.map((evaluation, index) => (
-					<CourseItem key={index} {...evaluation} />
-				))}
-			</div>
-		</DropdownMenu>
+		<Popover variant="rounded" size="third" placement="top-start">
+			<PopoverTrigger>
+				<Box className="w-full h-full">
+					<BrowsingBarButton title={type} subtitle="click to change" arrow up />
+				</Box>
+			</PopoverTrigger>
+			<PopoverContent zIndex="50">
+				<PopoverBody>
+					<div className="flex flex-col gap-3 bg-clears p-5">
+						{evaluations?.map((evaluation, index) => (
+							<CourseItem key={index} {...evaluation} />
+						))}
+					</div>
+				</PopoverBody>
+			</PopoverContent>
+		</Popover>
 	);
 };

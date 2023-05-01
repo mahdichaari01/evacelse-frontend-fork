@@ -6,9 +6,10 @@ export function QCMAnswer(
 		answers: string[];
 		correct_answers: number[];
 		reveal: boolean;
+		questionID: string;
 	}>
 ) {
-	const { answers, reveal, correct_answers: correct_answer } = props;
+	const { answers, reveal, correct_answers: correct_answer, questionID } = props;
 	const [selected, setSelected] = React.useState<number[]>([]);
 	const toggleSelection = (index: number) => () => {
 		if (selected.includes(index)) {
@@ -17,9 +18,12 @@ export function QCMAnswer(
 			setSelected([...selected, index]);
 		}
 	};
+	React.useEffect(() => {
+		setSelected([]);
+	}, [questionID]);
 	return (
 		<ScrollableBox className="w-full rounded">
-			<ul className="flex w-full flex-col gap-3">
+			<ul className="flex w-full flex-col gap-[.625rem]">
 				{answers.map((answer, index) => (
 					<Option
 						key={index}

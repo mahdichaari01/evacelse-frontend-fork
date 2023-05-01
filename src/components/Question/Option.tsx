@@ -13,7 +13,10 @@ StyleMap.set(2, {
 	box: "outline outline-2 outline-darks",
 });
 StyleMap.set(3, StyleMap.get(2) as any);
-
+StyleMap.set(4, {
+	index: "bg-error text-clears",
+	box: "outline outline-2 outline-error",
+});
 StyleMap.set(5, {
 	index: "bg-success text-clears",
 	box: "outline outline-2 outline-success",
@@ -47,7 +50,7 @@ export default function Option({
 	return (
 		<li
 			onClick={onClick}
-			className="flex flex-row  justify-start gap-4 drop-shadow-sm hover:drop-shadow-md cursor-pointer active:scale-[101%] transition-all duration-75 "
+			className="flex flex-row m-0.5 justify-start gap-[.875rem] drop-shadow-sm hover:drop-shadow-md cursor-pointer active:scale-[101%] transition-all duration-75 "
 		>
 			<div
 				className={`flex w-12 place-content-center place-items-center rounded p-3 text-3xl font-bold bg-clears text-darks ${

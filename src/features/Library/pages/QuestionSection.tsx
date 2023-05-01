@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { QuestionContainer } from "../components/Layouts/EvaluationsPageLayouts";
@@ -15,7 +16,7 @@ import { QCMAnswer, QuestionStatement } from "@/components/Question";
 
 export const QuestionsSection = () => {
 	const { questionID, chapterID, evaluationID } = useParams();
-	const [verify, toggleVerify] = useToggle(false);
+
 	const { isLoading, data } = useQuery<QuestionResponse>({
 		queryFn: () => {
 			console.log("something triggered this");
@@ -32,7 +33,11 @@ export const QuestionsSection = () => {
 		queryFn: () => getQuestions(evaluationID),
 		queryKey: ["questions", evaluationID],
 	});
-
+	const [verify, toggleVerify] = useToggle(false);
+	useEffect(() => {
+		if (verify ? !data?.isAnswered : data?.isAnswered) toggleVerify();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [questionID, data?.isAnswered]);
 	let index = 0,
 		next: string | undefined,
 		previous: string | undefined,
@@ -73,7 +78,7 @@ export const QuestionsSection = () => {
 				) : (
 					<div className="md:ui-part">
 						<QuestionLayout
-							index={index}
+							index={index + 1}
 							is_favorite={isFavorite}
 							number_of_questions={length}
 							next={next}
@@ -92,6 +97,7 @@ export const QuestionsSection = () => {
 										.filter((v, i) => v.isC)
 										.map((v) => v.i) || []
 								}
+								questionID={data?.id || ""}
 							/>
 						</QuestionLayout>
 					</div>

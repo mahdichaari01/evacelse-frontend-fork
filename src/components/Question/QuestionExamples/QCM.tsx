@@ -53,6 +53,7 @@ export function QCM(props: QCMData) {
 				answers={answers}
 				correct_answers={correct_answer}
 				reveal={show}
+				questionID={"test"}
 			/>
 			{/* <QROCAnswer
 				answer="Une femme de 33 ans présente une cellulite au dos de la main droite 24 heures après avoir été mordue par un chat. Une coloration de Gram du liquide sérosanguinolent qui s'échappe de la plaie contient des polynucléaires neutrophiles et de petits bâtonnets Gram négatif. Quel serait le traitement de choix à administrer dans ce cas-ci?"
