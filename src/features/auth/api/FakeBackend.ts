@@ -63,7 +63,7 @@ class UsersDB implements Repository<string, Account> {
 		);
 	}
 	add(entity: Account) {
-		this.db.set(entity.user.email, entity);
+		this.db.set(entity.user.email.toLowerCase(), entity);
 		this.persist();
 		return entity;
 	}
@@ -91,7 +91,7 @@ const FakeAuth = (DB: UsersDB) => {
 	const login = (data: LoginCredentialsDTO): Promise<UserResponse> =>
 		new Promise((resolve, reject) => {
 			setTimeout(() => {
-				const account = DB.getById(data.email);
+				const account = DB.getById(data.email.toLowerCase());
 				if (!account) {
 					reject(new Error("User not found"));
 				} else {

@@ -14,7 +14,7 @@ const FakeQuestions = Array.from({ length: 100 }, (_, i) => i + 1).map(
 				.join(),
 			isCorrect: randBoolean(),
 		})),
-		isAnswered: true,
+		isAnswered: randBoolean(),
 	})
 );
 
