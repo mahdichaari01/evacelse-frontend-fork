@@ -25,7 +25,6 @@ export const QuestionsListSection = () => {
 			//the following code makes the user navigate to the next evaluation if all questions in this evaluation are answered which is a bad user experience due to inability to review the answers
 			// implementing it the right way is a bit complicated and it will result in a lot of loading time due to the number of requests and api limitations
 			// maybe in the future, we can move the backend to graphQL and implement it the right way
-
 			// else {
 			// 	//if all questions in this evaulation are answered, navigate to the next evaluation
 			// 	if (!evaluationsAreLoading) {
@@ -39,7 +38,7 @@ export const QuestionsListSection = () => {
 			// 		else navigate(`../${evaluations[current + 1].id}`);
 			// 	}
 			// 	else
-			navigate(`QCM/${data?.[data.length - 1].id}`);
+			else navigate(`QCM/${data?.[data.length - 1].id}`);
 			// }
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
