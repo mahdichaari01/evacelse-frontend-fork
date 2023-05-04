@@ -16,6 +16,7 @@ body {
 	height: 100vh;
 	height: calc(var(--vh, 1vh) * 100);
 	min-height: 630px;
+	font-size: 15px;
 }
 
 .material-symbols-rounded {
