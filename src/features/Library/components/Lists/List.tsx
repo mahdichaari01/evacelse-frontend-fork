@@ -51,7 +51,7 @@ const DropdownList = ({
 	type: "Evaluations" | "Sessions";
 }) => {
 	return (
-		<Popover variant="rounded" size="third" placement="top-start">
+		<Popover variant="rounded" size="third" placement="top-start" isLazy>
 			<PopoverTrigger>
 				<Box className="w-full h-full">
 					<BrowsingBarButton title={type} subtitle="click to change" arrow up />

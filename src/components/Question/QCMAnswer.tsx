@@ -23,7 +23,7 @@ export function QCMAnswer(
 	}, [questionID]);
 	return (
 		<ScrollableBox className="w-full rounded">
-			<ul className="flex w-full flex-col gap-[.625rem]">
+			<ul className="flex w-full flex-col gap-[.625rem] py-2">
 				{answers.map((answer, index) => (
 					<Option
 						key={index}

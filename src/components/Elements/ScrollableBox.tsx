@@ -1,5 +1,6 @@
 import React, { PropsWithChildren, useRef } from "react";
 import { useIntersectionObserver } from "usehooks-ts";
+import Shadow from "./shadow.png";
 //create a scrollable div with padding
 export function ScrollableBox(
 	props: PropsWithChildren<{
@@ -25,9 +26,10 @@ export function ScrollableBox(
 		>
 			<div
 				className={`z-10 shadows topShadow ${
-					BottomEntry === undefined || TopEntry?.isIntersecting ? "hide" : "show "
+					TopEntry === undefined || TopEntry?.isIntersecting ? "hide" : "show "
 				}`}
 				aria-hidden
+				style={{ backgroundImage: `url(${Shadow})` }}
 			></div>
 			<div className="overflow-y-scroll overflow-x-hidden px-1 cleanScrollbar h-full w-full">
 				<div ref={top} className="h-[.0625rem]"></div>
@@ -36,9 +38,9 @@ export function ScrollableBox(
 			</div>
 
 			<div
-				className={`z-10 shadows bottomShadow ${
-					BottomEntry === undefined || BottomEntry.isIntersecting ? "hide" : "show "
-				} `}
+				className={`z-10 shadows  bottomShadow
+				${BottomEntry === undefined || BottomEntry.isIntersecting ? "hide" : "show "} `}
+				style={{ backgroundImage: `url(${Shadow})` }}
 				aria-hidden
 			></div>
 		</div>

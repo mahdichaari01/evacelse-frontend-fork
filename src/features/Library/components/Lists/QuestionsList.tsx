@@ -115,7 +115,7 @@ const DropdownList = ({
 }) => {
 	return (
 		<div className="w-full h-full flex flex-row gap-2">
-			<Popover variant="rounded" size="fit">
+			<Popover variant="rounded" size="fit" isLazy>
 				<PopoverTrigger>
 					<Box className="w-full h-full">
 						<BrowsingBarButton
@@ -151,7 +151,7 @@ const DropdownList = ({
 					</PopoverBody>
 				</PopoverContent>
 			</Popover>
-			<Popover variant="rounded" size="fit" placement="top-end">
+			<Popover variant="rounded" size="fit" placement="top-end" isLazy>
 				<PopoverTrigger>
 					<Box className="w-full h-full">
 						<BrowsingBarButton

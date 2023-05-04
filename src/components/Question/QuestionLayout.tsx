@@ -15,7 +15,7 @@ export default function QuestionLayout(
 ) {
 	const [showModal, setShowModal] = React.useState(false);
 	return (
-		<div className="flex w-full h-full justify-between items-center flex-col gap-5 p-1 md:p-[2.6rem]">
+		<div className="sm:flex w-full h-full justify-between items-center flex-col gap-5 p-1 md:p-[2.6rem]">
 			<div className="flex w-full justify-between h-[3.125rem]">
 				<div className="h-fit w-fit rounded-sm bg-primary p-3 text-center font-medium text-base-100">
 					<span className="hidden md:inline ">Question </span>
