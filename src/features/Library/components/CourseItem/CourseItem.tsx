@@ -6,8 +6,8 @@ export function CourseItem(props: { title: string; to: string }) {
 		<NavLink
 			to={props.to}
 			className={({ isActive }) =>
-				`flex flex-row items-center justify-start gap-4 rounded bg-clears px-4 py-5 hover:brightness-75 ${
-					isActive ? "bg-darks text-white" : ""
+				`flex shadow flex-row items-center justify-start gap-4 rounded bg-clears px-4 py-5 hover:brightness-75 ${
+					isActive ? "bg-darks text-white font-medium" : ""
 				}`
 			}
 		>
@@ -35,9 +35,7 @@ export function CourseItem(props: { title: string; to: string }) {
 				</span>
 			</div> */}
 			<EvaluationIcon className="w-6 shrink-0" />
-			<div className="text-base font-medium leading-none line-clamp-2">
-				{props.title}
-			</div>
+			<div className="text-sm leading-none line-clamp-2">{props.title}</div>
 			{/* <div className="text-[.6rem] font-medium">
 					{Object.values(data.content).reduce((a, b) => a + b, 0)} activités
 				</div> */}

@@ -9,7 +9,7 @@ export function LibraryItem(props: {
 	onSessionClick: () => void;
 }) {
 	return (
-		<div className="flex flex-col p-3 rounded-xl bg-clears gap-3 w-full max-w-lg drop-shadow-md">
+		<div className="flex flex-col p-3 rounded-xl bg-clears gap-3 w-full max-w-lg shadow-md">
 			<div className="px-5 py-3 flex flex-col gap-4">
 				<div className="flex flex-row justify-start items-center gap-3">
 					<div className="w-10 flex items-center justify-center">

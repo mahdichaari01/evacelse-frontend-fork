@@ -25,7 +25,7 @@ export const QuestionSkeleton = () => (
 						{Array.from({ length: 7 }).map((_, index) => (
 							<li
 								key={index}
-								className="flex flex-row m-0.5 justify-start gap-[.875rem] drop-shadow-sm"
+								className="flex flex-row m-0.5 justify-start gap-[.875rem] shadow-sm"
 							>
 								<div
 									className={`flex w-12 place-content-center place-items-center rounded p-3 text-3xl font-bold bg-clears-tertiary animate-pulse text-darks-low `}

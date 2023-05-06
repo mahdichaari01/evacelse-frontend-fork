@@ -40,7 +40,7 @@ const RegularList = ({
 					<p className="max-2xl:hidden font-medium text-xl">Questions</p>
 					<Accordion>
 						<ScrollableBox className="w-full h-full rounded">
-							<div className="grid grid-cols-2 gap-3 px-2">
+							<div className="grid grid-cols-2 gap-3 px-1 py-1">
 								{questions?.map((question, index) => (
 									// <CourseItem key={index} title={`Q${index}`} to={`QCM/${question.id}`} isAnswered={question.isAnswered} />
 									<QuestionButton
@@ -89,7 +89,7 @@ const RegularList = ({
 						</PopoverContent>
 					</Popover>
 					<ScrollableBox className="w-full h-full rounded">
-						<div className="grid grid-cols-2 gap-3 px-2">
+						<div className="grid grid-cols-2 gap-3 p-1">
 							{questions?.map((question, index) => (
 								// <CourseItem key={index} title={`Q${index}`} to={`QCM/${question.id}`} isAnswered={question.isAnswered} />
 								<QuestionButton
@@ -212,21 +212,21 @@ const QuestionButton = (props: {
 		<NavLink
 			to={props.to}
 			className={({ isActive }) =>
-				`w-full select-none h-11 flex flex-row items-center justify-center gap-2 px-3 rounded bg-clears-tertiary hover:brightness-75  ${
+				`w-full select-none h-11 flex flex-row items-center justify-center gap-1 px-3 rounded bg-clears-tertiary hover:brightness-75  ${
 					isActive
-						? "border-solid box-border border-darks-mid border-2 text-darks"
+						? "outline outline-2 outline-darks-mid text-darks"
 						: "text-darks-mid"
 				}`
 			}
 		>
 			<div
-				className={`w-[.875rem] h-[.875rem] rounded-full ${
+				className={`w-3 h-3 shrink-0 rounded-full ${
 					props.isAnswered ? "bg-primary" : "bg-sinopia"
 				}`}
 			></div>
-			<div className="text-[.8125rem]  font-medium leading-none">
-				{md ? "Question " : "Q"}
-				{props.index}
+			<div className="text-xs  font-medium leading-none">
+				<span className="font-normal">{md ? "Question " : "Q"}</span>
+				<span>{props.index}</span>
 			</div>
 		</NavLink>
 	);

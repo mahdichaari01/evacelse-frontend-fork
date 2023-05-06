@@ -20,7 +20,7 @@ const NarrowMainLayout = (props: MainLayoutProps) => {
 		<ScrollableBox className="w-screen h-screen bg-clears-secondary">
 			<div
 				id="menuBar"
-				className="sticky w-[90%] bg-clears h-fit rounded-full drop-shadow z-20 top-3 my-2 mx-auto overflow-hidden"
+				className="sticky w-[90%] bg-clears h-fit rounded-full shadow z-20 top-3 my-2 mx-auto overflow-hidden"
 			>
 				<TitleBar routes={props.routes} />
 			</div>
