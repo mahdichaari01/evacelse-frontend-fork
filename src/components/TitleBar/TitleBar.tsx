@@ -49,7 +49,7 @@ const MobileTitleBar = (props: {
 		<div className="w-full h-16 overflow-hidden flex flex-row justify-between items-center p-2">
 			<button
 				className="btn btn-circle text-darks-mid flex flex-row items-center"
-				onClick={() => navigate(-1)}
+				onClick={() => navigate("../..")}
 			>
 				<Icon name="arrow_back_ios_new" className="text-base" />
 			</button>

@@ -32,12 +32,12 @@ const RegularList = ({
 }: {
 	questions?: { id: string; isAnswered: boolean }[];
 }) => {
-	const window = useMediaQuery("(min-width: 1536px)");
+	const window = useMediaQuery("(min-width: 1280px)");
 	return (
 		<div className="ui-part flex flex-col p-6 justify-between items-center gap-5 overflow-hidden">
 			{window ? (
 				<>
-					<p className="max-2xl:hidden font-medium text-xl">Questions</p>
+					<p className="max-xl:hidden font-medium text-xl">Questions</p>
 					<Accordion>
 						<ScrollableBox className="w-full h-full rounded">
 							<div className="grid grid-cols-2 gap-3 px-1 py-1">
