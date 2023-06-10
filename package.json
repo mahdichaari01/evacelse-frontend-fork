@@ -42,7 +42,7 @@
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build",
 		"build:css": "npx tailwindcss -i ./src/index.css -o ./src/tailwind.css",
-		"//prepare": "husky install",
+		"prepare": "husky install",
 		"lint-staged": "lint-staged"
 	},
 	"eslintConfig": {
