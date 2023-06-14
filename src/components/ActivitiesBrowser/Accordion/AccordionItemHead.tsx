@@ -1,6 +1,5 @@
 import React from "react";
 import { activitiesIcons } from "@/assets";
-import { Icon } from "@/components";
 
 export function AccordionItemHead(props: {
 	title: "QCM" | "QROC" | "Cas Clinique";
@@ -36,11 +35,16 @@ export function AccordionItemHead(props: {
 				</div>
 			</div>
 			{!props.hideIcon ? (
-				<Icon
+				// <Icon
+				// 	className={`text-3xl leading-none transition-all ${
+				// 		props.isActive ? "rotate-180" : ""
+				// 	}`}
+				// 	name="expand_more"
+				// />
+				<ChevronDown
 					className={`text-3xl leading-none transition-all ${
 						props.isActive ? "rotate-180" : ""
 					}`}
-					name="expand_more"
 				/>
 			) : (
 				<></>
@@ -48,3 +52,21 @@ export function AccordionItemHead(props: {
 		</div>
 	);
 }
+
+const ChevronDown = (props: { className?: string }) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 24 24"
+		strokeWidth={1.5}
+		stroke="currentColor"
+		// className="w-6 h-6"
+		className={`w-6 h-6 ${props.className}`}
+	>
+		<path
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+		/>
+	</svg>
+);

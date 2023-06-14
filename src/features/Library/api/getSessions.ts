@@ -1,12 +1,12 @@
 import { randBetweenDate } from "@ngneat/falso";
 
 /**class Sessions(BaseModel):
-    date = Column(String, nullable=False)
-    chapter_id = Column(String, ForeignKey("chapters.id"))
+	date = Column(String, nullable=False)
+	chapter_id = Column(String, ForeignKey("chapters.id"))
 
-    chapter = relationship("Chapters", back_populates="sessions")    */
+	chapter = relationship("Chapters", back_populates="sessions")    */
 
-interface SessionResponse {
+export interface SessionResponse {
 	id: string;
 	date: string;
 	chapterId: string;
@@ -23,7 +23,7 @@ const FakeSessions = randBetweenDate({
 	chapterId: "0",
 }));
 
-export const getSessions = async () => {
+export const getSessions = async (id?: string) => {
 	return new Promise<SessionResponse[]>((resolve) => {
 		setTimeout(() => {
 			resolve(FakeSessions);
@@ -31,6 +31,6 @@ export const getSessions = async () => {
 	});
 };
 
-getSessions().then((sessions) => {
+getSessions("abd").then((sessions) => {
 	console.log(sessions);
 });

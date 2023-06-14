@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, ReactNode } from "react";
 import { LogoutButton, NavBar, NavButton } from "../Navigation/Navigation";
 import { useMediaQuery } from "usehooks-ts";
 
@@ -7,7 +7,7 @@ import { TitleBar } from "../TitleBar/TitleBar";
 
 type MainLayoutProps = PropsWithChildren<{
 	logout: () => void;
-	routes: { to: string; name: string; icon: string }[];
+	routes: { to: string; name: string; icon: ReactNode }[];
 }>;
 
 export function MainLayout(props: MainLayoutProps) {

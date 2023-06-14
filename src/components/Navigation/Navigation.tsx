@@ -1,11 +1,10 @@
 import React, { ReactElement, ReactNode } from "react";
-import { Icon } from "@/components";
 import { NavLink } from "react-router-dom";
 
 interface INavItem {
 	to: string;
 	name?: string;
-	icon: string;
+	icon: ReactNode;
 }
 
 function NavButton({ to, name: text, icon }: INavItem) {
@@ -19,7 +18,8 @@ function NavButton({ to, name: text, icon }: INavItem) {
 			}
 			to={to}
 		>
-			<Icon name={icon} className="w-fit text-3xl leading-none" />
+			{/* <Icon name={icon} className="w-fit text-3xl leading-none" /> */}
+			{icon}
 			<span className="text-xs font-medium leading-none">{text}</span>
 		</NavLink>
 	);
@@ -30,7 +30,7 @@ function LogoutButton({ onClick }: { onClick: () => void }) {
 			onClick={onClick}
 			className="flex w-full max-w-[4.375rem] flex-col items-center justify-center gap-2 justify-self-end rounded-sm bg-transparent py-2 text-sinopia hover:bg-base-300"
 		>
-			<Icon name="logout" className="w-fit text-3xl leading-none" />
+			<LogoutIcon className="w-fit text-3xl leading-none" />
 			<span className="text-xs font-medium leading-none">Logout</span>
 		</button>
 	);
@@ -80,3 +80,20 @@ function NavContainer({
 }
 
 export { NavButton, LogoutButton, NavBar };
+
+const LogoutIcon = (props: { className?: string }) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 24 24"
+		strokeWidth={2}
+		stroke="currentColor"
+		className={`w-6 h-6 ${props.className}`}
+	>
+		<path
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+		/>
+	</svg>
+);

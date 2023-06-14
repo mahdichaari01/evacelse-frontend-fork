@@ -26,6 +26,9 @@ dependencies:
   '@headlessui/tailwindcss':
     specifier: ^0.1.2
     version: 0.1.2(tailwindcss@3.2.4)
+  '@heroicons/react':
+    specifier: ^2.0.18
+    version: 2.0.18(react@18.2.0)
   '@kunukn/react-collapse':
     specifier: ^2.2.10
     version: 2.2.10(react-dom@18.2.0)(react@18.2.0)
@@ -4369,6 +4372,14 @@ packages:
       tailwindcss: ^3.0
     dependencies:
       tailwindcss: 3.2.4(postcss@8.4.21)
+    dev: false
+
+  /@heroicons/react@2.0.18(react@18.2.0):
+    resolution: {integrity: sha512-7TyMjRrZZMBPa+/5Y8lN0iyvUU/01PeMGX2+RE7cQWpEUIcb4QotzUObFkJDejj/HUH4qjP/eQ0gzzKs2f+6Yw==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /@humanwhocodes/config-array@0.11.10:

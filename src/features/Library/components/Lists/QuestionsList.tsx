@@ -1,5 +1,5 @@
 import { useMediaQuery } from "usehooks-ts";
-import { Icon, ScrollableBox } from "@/components";
+import { ScrollableBox } from "@/components";
 import {
 	AccordionContainer,
 	AccordionItemHead,
@@ -60,7 +60,8 @@ const RegularList = ({
 						<PopoverTrigger>
 							<div className="flex flex-row items-center gap-1 py-1 px-2 rounded bg-darks text-clears cursor-pointer">
 								QCM
-								<Icon name="expand_more" />
+								{/* <Icon name="expand_more" /> */}
+								<ChevronDown />
 							</div>
 						</PopoverTrigger>
 						<PopoverContent zIndex="50">
@@ -231,3 +232,20 @@ const QuestionButton = (props: {
 		</NavLink>
 	);
 };
+
+const ChevronDown = (props: { className?: string }) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 24 24"
+		strokeWidth={1.5}
+		stroke="currentColor"
+		className="w-6 h-6"
+	>
+		<path
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+		/>
+	</svg>
+);

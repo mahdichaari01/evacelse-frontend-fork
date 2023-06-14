@@ -59,6 +59,20 @@ export const popoverTheme = defineMultiStyleConfig({
 });
 
 export const theme = extendTheme({
+	colors: {
+		primary: {
+			50: "#009d94",
+			100: "#009d94",
+			200: "#009d94",
+			300: "#009d94",
+			400: "#009d94",
+			500: "#009d94",
+			600: "#009d94",
+			700: "#009d94",
+			800: "#009d94",
+			900: "#009d94",
+		},
+	},
 	components: {
 		Drawer: {
 			sizes: {

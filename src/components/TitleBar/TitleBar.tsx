@@ -1,9 +1,8 @@
 import { useUser, useLogout } from "@/lib/authContext";
 import { useQuery } from "@tanstack/react-query";
-import { useRef, useState } from "react";
+import { ReactNode, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "usehooks-ts";
-import { Icon } from "../Elements";
 import { useTitle } from "@/contexts/TitleContext";
 import {
 	Avatar,
@@ -21,7 +20,7 @@ import {
 import { LogoutButton, NavBar, NavButton } from "../Navigation/Navigation";
 
 export const TitleBar = (props: {
-	routes?: { to: string; name: string; icon: string }[];
+	routes?: { to: string; name: string; icon: ReactNode }[];
 }) => {
 	const matches = useMediaQuery("(min-width: 768px)");
 	return matches ? (
@@ -32,7 +31,7 @@ export const TitleBar = (props: {
 };
 
 const MobileTitleBar = (props: {
-	routes?: { to: string; name: string; icon: string }[];
+	routes?: { to: string; name: string; icon: ReactNode }[];
 }) => {
 	const userFn = useUser();
 	const { data, isLoading: userLoading } = useQuery({
@@ -51,11 +50,13 @@ const MobileTitleBar = (props: {
 				className="btn btn-circle text-darks-mid flex flex-row items-center"
 				onClick={() => navigate("../..")}
 			>
-				<Icon name="arrow_back_ios_new" className="text-base" />
+				{/* <Icon name="arrow_back_ios_new" className="text-base" /> */}
+				<ChevronBackIcon />
 			</button>
 			<h1 className="font-bold text-xl">{title}</h1>
 			<button className="btn btn-circle" ref={drawerTriggerRef} onClick={onOpen}>
-				<Icon name="menu" className="text-base" />
+				{/* <Icon name="menu" className="text-base" /> */}
+				<MenuIcon />
 			</button>
 			<Drawer
 				isOpen={isOpen}
@@ -119,7 +120,8 @@ const RegularTitleBar = () => {
 				className="text-darks-mid flex flex-row items-center group"
 				onClick={() => navigate(-1)}
 			>
-				<Icon name="arrow_back_ios_new" className="text-base" />
+				{/* <Icon name="arrow_back_ios_new" className="text-base" /> */}
+				<ChevronBackIcon />
 				<span className="group-hover:underline"> Go back</span>
 			</button>
 			<h1 className="font-extrabold text-3xl">{title}</h1>
@@ -168,3 +170,37 @@ const RegularTitleBar = () => {
 		</div>
 	);
 };
+
+const ChevronBackIcon = () => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 24 24"
+		strokeWidth={1.5}
+		stroke="currentColor"
+		className="w-6 h-6"
+	>
+		<path
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			d="M15.75 19.5L8.25 12l7.5-7.5"
+		/>
+	</svg>
+);
+
+const MenuIcon = () => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 24 24"
+		strokeWidth={1.5}
+		stroke="currentColor"
+		className="w-6 h-6"
+	>
+		<path
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+		/>
+	</svg>
+);

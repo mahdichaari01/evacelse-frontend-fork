@@ -20,6 +20,10 @@ module.exports = {
 			...defaultTheme.fontWeight,
 		},
 		extend: {
+			spacing: {
+				...defaultTheme.spacing,
+				uigap: "1.25rem",
+			},
 			colors: {
 				transparent: "transparent",
 				current: "currentColor",

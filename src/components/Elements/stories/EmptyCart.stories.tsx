@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import React from "react";
 
-import { EmptyCart } from "../EmptyCart";
+import { EmptyCart } from "../../../features/Store/components/EmptyCart";
 
 export default {
 	title: "Elements/EmptyCart",

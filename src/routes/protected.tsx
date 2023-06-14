@@ -3,6 +3,13 @@ import { Navigate, Outlet, RouteObject } from "react-router-dom";
 import { MainLayout } from "@/components";
 import { useLogout } from "@/lib/authContext";
 import { Library } from "@/features/Library/routes";
+import { StoreRoutes } from "@/features/Store";
+import {
+	HomeIcon,
+	LibraryIcon,
+	StartIcon,
+	StoreIcon,
+} from "@/components/Navigation/NaviagationIcons";
 
 interface IRoute {
 	element: React.ReactNode;
@@ -10,7 +17,8 @@ interface IRoute {
 	path?: string;
 	name: string;
 	to: string;
-	icon: string;
+	// icon: string;
+	icon: React.ReactNode;
 }
 const routes: IRoute[] = [];
 routes.push({
@@ -18,28 +26,28 @@ routes.push({
 	index: true,
 	to: "/",
 	name: "Home",
-	icon: "home",
+	icon: <HomeIcon />,
 });
 routes.push({
 	element: <Library />,
 	path: "library/*",
 	to: "/library",
 	name: "Library",
-	icon: "book",
+	icon: <LibraryIcon />,
 });
 routes.push({
 	element: <h1>Favourites</h1>,
 	path: "favorites/*",
 	to: "/favorites",
 	name: "Favourites",
-	icon: "star",
+	icon: <StartIcon />,
 });
 routes.push({
-	element: <h1>Store</h1>,
+	element: <StoreRoutes />,
 	path: "store/*",
 	to: "/store",
 	name: "Store",
-	icon: "local_mall",
+	icon: <StoreIcon />,
 });
 
 const App = () => {
@@ -59,9 +67,6 @@ const App = () => {
 		</MainLayout>
 	);
 };
-//TODO: Add lazy loading, Suspense, and Error Boundaries
-//TODO: Add auth check to protected routes
-//TODO:
 
 const ProtectedRoutes: RouteObject = {
 	element: <App />,
