@@ -7,11 +7,11 @@ import { DynamicTitleProvider } from "@/lib/DynamicTitle";
 export default function Providers({ children }: PropsWithChildren) {
   return (
     <>
-      <DynamicTitleProvider>
-        <ChakraProvider>
+      <ChakraProvider>
+        <DynamicTitleProvider>
           <SessionProvider>{children}</SessionProvider>
-        </ChakraProvider>
-      </DynamicTitleProvider>
+        </DynamicTitleProvider>
+      </ChakraProvider>
     </>
   );
 }

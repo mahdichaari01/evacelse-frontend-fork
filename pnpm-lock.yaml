@@ -23,6 +23,9 @@ dependencies:
   '@emotion/styled':
     specifier: ^11.11.0
     version: 11.11.0(@emotion/react@11.11.1)(@types/react@18.2.17)(react@18.2.0)
+  '@kunukn/react-collapse':
+    specifier: ^2.2.10
+    version: 2.2.10(react-dom@18.2.0)(react@18.2.0)
   '@types/node':
     specifier: 20.4.5
     version: 20.4.5
@@ -1285,6 +1288,7 @@ packages:
 
   /@emotion/memoize@0.7.4:
     resolution: {integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==}
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -1452,6 +1456,17 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
+
+  /@kunukn/react-collapse@2.2.10(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-1qCB9+UDw9tLolhFfO4ywfATylV0cflmkLYRGGV8mQhtAzYDPyDU0HUog98IdlmZBowcdfmxFTbtoD99Eyq5SA==}
+    engines: {node: '>=12', npm: '>=6'}
+    peerDependencies:
+      react: ^16.8 || ^17.x  || ^18.x
+      react-dom: ^16.8 || ^17.x || ^18.x
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /@next/env@13.4.12:
     resolution: {integrity: sha512-RmHanbV21saP/6OEPBJ7yJMuys68cIf8OBBWd7+uj40LdpmswVAwe1uzeuFyUsd6SfeITWT3XnQfn6wULeKwDQ==}
