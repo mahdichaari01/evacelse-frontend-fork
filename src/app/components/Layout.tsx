@@ -8,7 +8,7 @@ export const Layout = ({ children }: { children?: ReactNode }) => (
     <div id="navContainer" className="h-full w-20 ui-part p-2">
       <NavBar items={navConfig} />
     </div>
-    <div className="w-full h-full overflow-hidden  flex flex-col gap-0 md:gap-5 ">
+    <div className="w-full h-full overflow-hidden  flex flex-col gap-5 ">
       <div id="titleBarContainer" className="h-24 ui-part">
         <TitleBar />
       </div>
