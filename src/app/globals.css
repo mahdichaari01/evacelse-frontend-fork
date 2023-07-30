@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+    .ui-part {
+        @apply rounded bg-clears-secondary shadow-inner overflow-hidden w-full h-full;
+    }
+}
+
+.collapse-css-transition {
+    transition: height 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+html,
+body {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    min-height: 630px;
+    font-size: 15px;
+}
+
+.material-symbols-rounded {
+    font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 200, "opsz" 40;
+}
+
+/* .material-symbols-rounded-sm {
+	font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 200, "opsz" 24;
+} */
+
+.cleanScrollbar {
+    scrollbar-color: #acacac #656565;
+    scrollbar-width: thin;
+}
+.cleanScrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+.cleanScrollbar::-webkit-scrollbar-track {
+    background: #ffffff00;
+}
+.cleanScrollbar::-webkit-scrollbar-thumb {
+    background-color: #acacac;
+    border-radius: 5px;
+    border: 3px solid #656565;
+}
+.cleanScrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #858585;
+}
+
+.cleanScrollbar::-webkit-scrollbar-button {
+    visibility: hidden;
+}
+
+.shadows {
+    position: absolute;
+    height: 30px;
+    width: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    --intensity: 0.25;
+    opacity: 0;
+    transition: all 0.08s linear;
+}
+.topShadow {
+    top: 0;
+    left: 0;
+    /* background: radial-gradient(
+        ellipse at top,
+        rgba(21, 21, 23, var(--intensity)) 0%,
+        rgba(21, 21, 23, 0) 80%
+    ); */
+    background-size: 100% 100%;
+    rotate: 180deg;
+}
+
+.bottomShadow {
+    bottom: 0;
+    left: 0;
+    background-size: 100% 100%;
+    /* background: radial-gradient(
+        ellipse at bottom,
+        rgba(21, 21, 23, var(--intensity)) 0%,
+        rgba(21, 21, 23, 0) 80%
+    ); */
+}
+
+.show {
+    opacity: 0.4;
+    height: 30px;
+}
+.hide {
+    opacity: 0;
+    height: 0;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.fadein {
+    animation: fadein 0.2s;
+    animation-delay: 4s;
+}
+
+.fadeout {
+    animation: fadeout 0.2s;
+    animation-delay: 4s;
+}
