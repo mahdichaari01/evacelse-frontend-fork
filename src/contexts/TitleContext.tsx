@@ -1,17 +1,29 @@
-import { PropsWithChildren, createContext, useContext, useState } from "react";
+import {
+	PropsWithChildren,
+	ReactNode,
+	createContext,
+	useContext,
+	useState,
+} from "react";
 
 interface TitleContextData {
 	title: string;
-	setTitle: (title: string) => void;
+	button: ReactNode;
+	setTitleBar: (value: { title: string; button: ReactNode }) => void;
 }
 
 const titleContext = createContext<TitleContextData>({} as TitleContextData);
 
 export const TitleContextProvider = (props: PropsWithChildren<{}>) => {
-	const [title, setTitle] = useState("Home");
+	const [titleBar, setTitleBar] = useState<{ title: string; button: ReactNode }>(
+		{
+			title: "",
+			button: null,
+		}
+	);
 
 	return (
-		<titleContext.Provider value={{ title, setTitle }}>
+		<titleContext.Provider value={{ setTitleBar, ...titleBar }}>
 			{props.children}
 		</titleContext.Provider>
 	);

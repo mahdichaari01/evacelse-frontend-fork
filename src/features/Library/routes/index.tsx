@@ -1,4 +1,11 @@
-import { Navigate, Outlet, Route, Routes } from "react-router-dom";
+import {
+	Navigate,
+	Outlet,
+	Route,
+	Routes,
+	useLocation,
+	useNavigate,
+} from "react-router-dom";
 import { IndexPage } from "../pages/IndexPage";
 import {
 	EvaluationPageLayout,
@@ -10,8 +17,25 @@ import { QuestionSkeleton } from "../components/skeletons/QuestionSkeleton";
 import { QuestionListSkeleton } from "../components/skeletons/QuestionListSkeleton";
 import { QuestionsListSection } from "../pages/QuestionListSection";
 import { QuestionsSection } from "../pages/QuestionSection";
+import { useTitle } from "@/contexts/TitleContext";
+import { useEffect } from "react";
 
 export const Library = () => {
+	const { pathname } = useLocation();
+	const { setTitleBar } = useTitle();
+	const navigate = useNavigate();
+	useEffect(() => {
+		if (pathname === "/library") {
+			setTitleBar({
+				title: "Library",
+				button: null,
+			});
+		} else
+			setTitleBar({
+				title: "Library",
+				button: <button onClick={() => navigate("/library")}>back</button>,
+			});
+	}, [pathname, setTitleBar, navigate]);
 	return (
 		<Routes>
 			<Route index element={<IndexPage />} />

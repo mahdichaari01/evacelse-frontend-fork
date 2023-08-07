@@ -41,19 +41,22 @@ const MobileTitleBar = (props: {
 	const navigate = useNavigate();
 	const logout = useLogout();
 	const [loadingLogout, setLoadingLogout] = useState(false);
-	const { title } = useTitle();
+	const { title, button } = useTitle();
+
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const drawerTriggerRef = useRef<HTMLButtonElement>(null);
 	return (
 		<div className="w-full h-16 overflow-hidden flex flex-row justify-between items-center p-2">
-			<button
-				className="btn btn-circle text-darks-mid flex flex-row items-center"
-				onClick={() => navigate("../..")}
+			<div
+				className={`w-full h-full flex flex-row items-center ${
+					button ? "justify-between" : "justify-center"
+				}`}
 			>
-				{/* <Icon name="arrow_back_ios_new" className="text-base" /> */}
-				<ChevronBackIcon />
-			</button>
-			<h1 className="font-bold text-xl">{title}</h1>
+				{button}
+				<h1 className="font-extrabold text-3xl">
+					{title === "" ? "Evacelse" : title}
+				</h1>
+			</div>
 			<button className="btn btn-circle" ref={drawerTriggerRef} onClick={onOpen}>
 				{/* <Icon name="menu" className="text-base" /> */}
 				<MenuIcon />
@@ -113,21 +116,23 @@ const RegularTitleBar = () => {
 	const navigate = useNavigate();
 	const logout = useLogout();
 	const [loadingLogout, setLoadingLogout] = useState(false);
-	const { title } = useTitle();
+	const { title, button } = useTitle();
+
 	return (
 		<div className="w-full h-full overflow-hidden flex flex-row justify-between items-center px-8">
-			<button
-				className="text-darks-mid flex flex-row items-center group"
-				onClick={() => navigate(-1)}
+			<div
+				className={`w-full h-full flex flex-row items-center ${
+					button ? "justify-between" : "justify-center"
+				}`}
 			>
-				{/* <Icon name="arrow_back_ios_new" className="text-base" /> */}
-				<ChevronBackIcon />
-				<span className="group-hover:underline"> Go back</span>
-			</button>
-			<h1 className="font-extrabold text-3xl">{title}</h1>
+				{button}
+				<h1 className="font-extrabold text-3xl">
+					{title === "" ? "Evacelse" : title}
+				</h1>
+			</div>
 			<Menu placement="bottom-end" closeOnSelect={false}>
-				<MenuButton>
-					<div className="flex flex-row items-center gap-2">
+				<MenuButton className="shrink-0">
+					<div className="flex flex-row items-center gap-2 shrink-0">
 						{userLoading ? (
 							<></>
 						) : (

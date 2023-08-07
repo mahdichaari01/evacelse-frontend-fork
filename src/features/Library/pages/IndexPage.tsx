@@ -12,17 +12,19 @@ export const IndexPage = () => {
 		refetchOnWindowFocus: false,
 	});
 	const navigate = useNavigate();
-	const { setTitle } = useTitle();
-	useEffect(() => setTitle("Library"), [setTitle]);
+	const { button, title, setTitleBar } = useTitle();
+	useEffect(() => {
+		setTitleBar({
+			title: "Library",
+			button: null,
+		});
+	}, [setTitleBar]);
 	return (
 		<BrowsingLayout loading={isLoading}>
 			{data?.map((chapter) => (
 				<LibraryItem
 					{...chapter}
 					key={chapter.id}
-					// name={chapter.name}
-					// evalutationsCount={chapter.evaluationsCount}
-					// sessionsCount={chapter.sessionsCount}
 					onSessionClick={() => navigate(`${chapter.id}/sessions`)}
 					onEvaluationClick={() => navigate(`${chapter.id}/evaluations`)}
 				/>
