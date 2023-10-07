@@ -1,13 +1,15 @@
 import {
   ActivitiesListSkeleton,
   QuestionSkeleton,
-} from "@/app/components/QuestionsViewComponents";
+} from "@/components/QuestionsViewComponents";
 
 export default function Loading() {
+  console.log("/evals/chaoID/loading");
+
   return (
     <>
       <QuestionSkeleton />
-      <ActivitiesListSkeleton />
+      {/*<ActivitiesListSkeleton />*/}
     </>
   );
 }

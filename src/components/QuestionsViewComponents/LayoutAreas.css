@@ -21,8 +21,20 @@
 */
 .main-container{
     gap: 1rem;
+    position: relative;
+
+}
+.unitsList {
+    grid-area: unitsList;
 }
 
+.activitiesList {
+    grid-area: activitiesList;
+}
+
+.question {
+    grid-area: question;
+}
 @media (min-width: 1280px) {
 
     .main-container {
@@ -32,7 +44,7 @@
         */
         grid-template-columns: 20.25rem 1fr 20.25rem;
         grid-template-rows: 1fr;
-        grid-template-areas: "unitsList activitiesList question";
+        grid-template-areas: "unitsList question activitiesList ";
 
     }
 }
@@ -51,24 +63,19 @@ lg:grid-cols-[20.375rem,1fr] lg:grid-rows-2 lg:gap-5        */
 @media (max-width: 767px) {
     .main-container {
         display: grid;
-        /*    these are the tailwind classes
-            grid-cols-[20.25rem,1fr,20.25rem] grid-rows-1
-        */
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
-        grid-template-areas: "question";
+        grid-template-areas:"unitsList activitiesList";
+        z-index: 10;
+    }
+    .question {
+        grid-area: question;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 20;
     }
 }
 
-.unitsList {
-    grid-area: unitsList;
-}
 
-.activitiesList {
-    grid-area: activitiesList;
-}
-
-.question {
-    grid-area: question;
-}
 

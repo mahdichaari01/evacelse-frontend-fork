@@ -7,10 +7,9 @@ import {
   MenuList,
   Spinner,
 } from "@chakra-ui/react";
-import { useSession } from "next-auth/react";
 
 const UserMenu = () => {
-  const { status, data } = useSession();
+  // console.log(status, data);
   return (
     <Menu
       placement="bottom-end"
@@ -26,24 +25,17 @@ const UserMenu = () => {
             <div className="font-bold text-darks-mid text-base leading-none flex flex-col items-end">
               <div className="font-medium">Welcome</div>
 
-              <div>{data?.user?.name || "Back!"}</div>
+              {/*<div>{data?.user?.name || "Back!"}</div>*/}
             </div>
           )}
 
           <Avatar
-            name={
-              status === "loading"
-                ? ""
-                : `${data?.user?.name || "Generic User"}`
-            }
+            name="Placeholder"
             icon={<></>}
             borderRadius={"md"}
-            src={data?.user?.image || undefined}
             bg={"linear-gradient(9.05deg, #FDF967 -23.87%, #FFD248 121.02%)"}
             size="md"
-          >
-            {status === "loading" ? <Spinner /> : undefined}
-          </Avatar>
+          ></Avatar>
         </div>
       </MenuButton>
       <MenuList>

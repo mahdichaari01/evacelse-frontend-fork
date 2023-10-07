@@ -1,14 +1,12 @@
 import { EvaluationIcon, FolderIcon, SessionIcon } from "@/components/icons";
 import Link from "next/link";
-import NavLink from "@/lib/NavLink";
-import { RelativeLink } from "@/lib/RelativeLink";
+// import NavLink from "@/lib/NavLink";
+// import { RelativeLink } from "@/lib/RelativeLink";
 
 export function LibraryItem(props: {
   name: string;
   evaluationsCount: number;
-  sessionsCount: number;
   EvaluationsLink: string;
-  SessionsLink: string;
 }) {
   return (
     <div className="flex flex-col p-3 rounded-xl bg-clears gap-3 w-full max-w-lg shadow-md">
@@ -39,26 +37,28 @@ export function LibraryItem(props: {
               <SessionIcon />
             </div>
             <p className="justify-self-start text-xs text-[#727272]">
-              <span className="font-medium">{props.sessionsCount}</span>{" "}
-              Sessions
+              <span className="font-medium">0</span> Sessions{" "}
+              <span className={"test-[5px] font-light leading-none"}>
+                (coming soon)
+              </span>
             </p>
           </div>
         </div>
       </div>
       <div className="btn-group rounded">
-        <RelativeLink
+        <Link
           className="btn w-1/2 normal-case text-sm font-medium py-2 leading-none min-h-fit h-[2.3125rem] text-primary"
           href={props.EvaluationsLink}
         >
           Evaluations
-        </RelativeLink>
+        </Link>
         <div className="h-full w-1 bg-[#7a7a7a]"></div>
-        <RelativeLink
-          className="btn w-1/2 normal-case text-sm font-medium py-2 leading-none min-h-fit h-[2.3125rem] text-primary"
-          href={props.SessionsLink}
-        >
-          Sessions
-        </RelativeLink>
+        <button className="btn w-1/2 normal-case text-sm font-medium leading-none min-h-fit h-[2.3125rem] text-primary btn-disabled flex flex-col gap-0 items-center justify-center">
+          <div>Sessions</div>
+          <div className={"text-[10px] font-light leading-none"}>
+            (coming soon)
+          </div>
+        </button>
       </div>
     </div>
   );

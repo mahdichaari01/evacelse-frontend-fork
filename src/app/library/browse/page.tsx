@@ -1,21 +1,30 @@
-import { getChapters } from "@/app/library/fakeData";
-import { LibraryItem } from "@/app/library/components/LibraryItem";
+import { LibraryItem } from "@/app/library/browse/components/LibraryItem";
 import { ScrollableBox } from "@/components";
-
+import { getChapters, getPacks } from "@/app/library/browse/data";
+import Image from "next/image";
+import NoPacks from "./assets/404.png";
+import { CourseList } from "@/app/library/browse/components/CoursesList";
 export default async function Library() {
-  const data = await getChapters();
-  return (
-    <ScrollableBox className="w-full h-full ui-part">
-      <div className=" py-11 px-7 sm:px-20 grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] justify-items-center gap-12">
-        {data?.map((chapter) => (
-          <LibraryItem
-            {...chapter}
-            key={chapter.id}
-            SessionsLink={`${chapter.id}/sessions`}
-            EvaluationsLink={`${chapter.id}/evaluations`}
-          />
-        ))}
+  const packs = await getPacks();
+  console.log(packs);
+  if (packs.length <= 0)
+    return (
+      <div className={"h-[90%] w-full flex justify-center items-center"}>
+        <Image
+          src={NoPacks}
+          alt={"No Packs Found"}
+          className={"object-contain w-1/2 h-1/2 opacity-60 max-w-[400px]"}
+        />
       </div>
-    </ScrollableBox>
+    );
+
+  const data = await Promise.all(
+    packs.map((pack) =>
+      getChapters(pack.id).then((chapters) =>
+        chapters.map((chapter) => ({ ...chapter, pack })),
+      ),
+    ),
   );
+
+  return <CourseList courses={data.flat()} />;
 }

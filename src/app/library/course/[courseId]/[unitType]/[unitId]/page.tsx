@@ -1,4 +1,8 @@
 import { redirect } from "next/navigation";
+import {
+  QuestionContainer,
+  QuestionListContainer,
+} from "@/components/QuestionsViewComponents";
 
 export default function Page({
   params,
@@ -8,5 +12,9 @@ export default function Page({
     unitType: string;
   };
 }) {
-  return <div>choose an evaluations and a question</div>;
+  return (
+    <QuestionContainer className={"max-md:hidden"}>
+      <div className={"ui-part"}></div>
+    </QuestionContainer>
+  );
 }

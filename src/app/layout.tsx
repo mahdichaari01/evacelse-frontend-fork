@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Rubik } from "next/font/google";
 import Providers from "@/Providers";
-import { Layout } from "./components/Layout";
+import { Layout } from "../components/Layout";
 
 const font = Rubik({ subsets: ["latin"] });
 

@@ -1,5 +1,5 @@
 import { ScrollableBox } from "@/components";
-import { UnitItem } from "@/app/components/QuestionsViewComponents/UnitsList/UnitItem";
+import { UnitItem } from "@/components/QuestionsViewComponents/UnitsList/UnitItem";
 interface Evaluation {
   title: string;
   href: string;

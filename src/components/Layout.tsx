@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import NavBar from "./Navigation";
 import TitleBar from "./TitleBar";
-import { navConfig } from "@/app/components/nav.config";
+import { navConfig } from "@/components/nav.config";
 
 export const Layout = ({ children }: { children?: ReactNode }) => (
   <div className="w-screen h-screen min-h-[43.75rem] flex flex-row p-5 gap-5 bg-clears">

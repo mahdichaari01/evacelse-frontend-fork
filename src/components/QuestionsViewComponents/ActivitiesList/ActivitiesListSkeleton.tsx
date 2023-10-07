@@ -1,46 +1,28 @@
 "use client";
 import { ScrollableBox } from "@/components";
 // import { useMediaQuery } from "usehooks-ts";
-import { QuestionListContainer } from "@/app/components/QuestionsViewComponents";
+import { QuestionListContainer } from "../CourseLayout";
 
 export const ActivitiesListSkeleton = () => {
   // const window = useMediaQuery("(min-width: 1536px)");
   return (
-    <QuestionListContainer>
-      <div className="ui-part flex flex-col p-9 justify-between items-center gap-5 overflow-hidden">
-        {/*{window ? (*/}
-        <>
-          <p className="max-2xl:hidden h-2 w-9 rounded-full bg-clears-tertiary animate-pulse"></p>
-          <div className="w-full flex  h-full flex-col gap-2">
-            <AccordionItemHeadSkeleton />
-            <div className="grid grid-cols-2 gap-3 px-2">
-              {Array.from({ length: 4 }).map((_, index) => (
-                <QuestionButtonSkeleton key={index} />
-              ))}
-            </div>
-            <AccordionItemHeadSkeleton />
-            <AccordionItemHeadSkeleton />
+    <div className="ui-part flex flex-col p-9 justify-between items-center gap-5 overflow-hidden">
+      {/*{window ? (*/}
+      <>
+        <p className="max-2xl:hidden h-2 w-9 rounded-full bg-clears-tertiary animate-pulse"></p>
+        <div className="w-full flex  h-full flex-col gap-2">
+          <AccordionItemHeadSkeleton />
+          <div className="grid grid-cols-2 gap-3 px-2">
+            {Array.from({ length: 4 }).map((_, index) => (
+              <QuestionButtonSkeleton key={index} />
+            ))}
           </div>
-          <p className="max-2xl:hidden h-2 w-9 rounded-full bg-clears-tertiary animate-pulse"></p>
-        </>
-        {/*) : (*/}
-        {/*  <>*/}
-        {/*    <div className="flex flex-row items-center gap-1 py-1 px-8 rounded bg-clears-tertiary animate-pulse text-clears cursor-pointer">*/}
-        {/*      <div>&nbsp;</div>*/}
-        {/*    </div>*/}
-
-        {/*    <ScrollableBox className="w-full h-full rounded">*/}
-        {/*      <div className="grid grid-cols-2 gap-3 px-2">*/}
-        {/*        {Array.from({ length: 3 }).map((_, index) => (*/}
-        {/*          <QuestionButtonSkeleton key={index} />*/}
-        {/*        ))}*/}
-        {/*      </div>*/}
-        {/*    </ScrollableBox>*/}
-        {/*  </>*/}
-        {/*)}*/}
-        {/* <p className="font-medium text-xs">{questions?.length} questions</p> */}
-      </div>
-    </QuestionListContainer>
+          <AccordionItemHeadSkeleton />
+          <AccordionItemHeadSkeleton />
+        </div>
+        <p className="max-2xl:hidden h-2 w-9 rounded-full bg-clears-tertiary animate-pulse"></p>
+      </>
+    </div>
   );
 };
 

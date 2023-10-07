@@ -28,13 +28,13 @@ export interface ActivitiesListProps {
   unitType: "evaluations" | "sessions";
 }
 
-export function ActivitesList(props: ActivitiesListProps) {
+export function ActivitiesList(props: ActivitiesListProps) {
   console.log("activities list");
-
-  const window = useMediaQuery("(min-width: 1280px)");
+  const wide = useMediaQuery("(min-width: 1280px)");
+  if (typeof window === "undefined") return null;
   return (
     <div className="ui-part flex flex-col p-6 justify-between items-center gap-5 overflow-hidden">
-      {window ? (
+      {wide ? (
         <>
           <p className="max-xl:hidden font-medium text-xl">Questions</p>
           <Accordion>

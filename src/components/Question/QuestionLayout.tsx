@@ -1,3 +1,4 @@
+"use client";
 import React, { PropsWithChildren } from "react";
 import { ControlledModal as Modal } from "@/components/Elements";
 import { RelativeLink } from "@/lib/RelativeLink";

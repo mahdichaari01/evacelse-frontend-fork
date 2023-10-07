@@ -1,6 +1,6 @@
 "use client";
 import UserMenu from "./UserMenu";
-import { useBack } from "@/app/components/TitleBar/useBack";
+import { useBack } from "@/components/TitleBar/useBack";
 import { Title } from "@/lib/DynamicTitle";
 import Link from "next/link";
 import { ChevronBackIcon } from "@/components/icons";
@@ -18,6 +18,7 @@ export const TitleBar = () => {
           <Link
             href={backpath}
             className={"flex flex-row items-center gap-1 font-medium"}
+            replace={true}
           >
             <ChevronBackIcon strokeWidth={2} /> back
           </Link>

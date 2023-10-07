@@ -8,9 +8,9 @@ export const metadata = {
 };
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <>
-      <SetTitle>Librairie</SetTitle>
+    <ScrollableBox className="w-full h-full ui-part">
+      <SetTitle>Library</SetTitle>
       {children}
-    </>
+    </ScrollableBox>
   );
 }

@@ -11,7 +11,7 @@ export function UnitItem(props: { title: string; href: string }) {
       //     // }`
       // }
       className={
-        "flex shadow flex-row items-center justify-start gap-4 rounded bg-clears px-4 py-5 hover:brightness-75 flex shadow flex-row items-center justify-start gap-4 rounded bg-clears px-4 py-5 hover:brightness-75 "
+        "flex shadow flex-row items-center justify-start gap-4 rounded bg-clears px-4 py-5 hover:brightness-75  "
       }
       activeClassName={"bg-darks text-white font-medium"}
     >

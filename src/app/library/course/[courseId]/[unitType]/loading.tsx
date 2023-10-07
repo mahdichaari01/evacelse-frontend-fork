@@ -10,9 +10,6 @@ import {
 export default function Loading() {
   return (
     <>
-      <UnitsListsContainer>
-        <UnitsListSkeleton />
-      </UnitsListsContainer>
       <QuestionContainer>
         <div className={"h-full w-full max-md:hidden"}>
           <QuestionSkeleton />

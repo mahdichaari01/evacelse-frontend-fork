@@ -1,4 +1,4 @@
 export * from "./ActivitiesList";
 export * from "./UnitsList";
 export * from "./Question";
-export * from "./Layout";
+export * from "./CourseLayout";
