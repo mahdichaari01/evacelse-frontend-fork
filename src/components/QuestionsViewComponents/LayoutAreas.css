@@ -1,0 +1,74 @@
+/*
+    we are going to use css grid to create the layout.
+    we have 3 areas, we're going to define just the css classes with the same name for each area
+    the areas are:
+        unitsList
+        activitiesList
+        question
+    there will be 3 screen size targets:
+       extra wide screens
+       wide screens
+       mobile screens
+    in extra wide screens, the layout will be:
+        unitsList activitiesList question
+    in wide screens, the layout will be:
+        unitsList question
+        activitiesList question
+    in mobile screens, the layout will be:
+        question
+        + 2 buttons to open the unitsList and activitiesList
+        the buttons are going to be fixed, I still don't know where to put them
+*/
+.main-container{
+    gap: 1rem;
+}
+
+@media (min-width: 1280px) {
+
+    .main-container {
+        display: grid;
+        /*    these are the tailwind classes
+            grid-cols-[20.25rem,1fr,20.25rem] grid-rows-1
+        */
+        grid-template-columns: 20.25rem 1fr 20.25rem;
+        grid-template-rows: 1fr;
+        grid-template-areas: "unitsList activitiesList question";
+
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+    .main-container {
+        display: grid;
+        /*    these are the tailwind classes
+lg:grid-cols-[20.375rem,1fr] lg:grid-rows-2 lg:gap-5        */
+        grid-template-columns: 20.375rem 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "unitsList question" "activitiesList question";
+    }
+}
+
+@media (max-width: 767px) {
+    .main-container {
+        display: grid;
+        /*    these are the tailwind classes
+            grid-cols-[20.25rem,1fr,20.25rem] grid-rows-1
+        */
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "question";
+    }
+}
+
+.unitsList {
+    grid-area: unitsList;
+}
+
+.activitiesList {
+    grid-area: activitiesList;
+}
+
+.question {
+    grid-area: question;
+}
+
