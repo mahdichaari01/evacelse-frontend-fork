@@ -1,3 +1,4 @@
+"use client";
 export * from "./ActivitiesList";
 export * from "./UnitsList";
 export * from "./Question";

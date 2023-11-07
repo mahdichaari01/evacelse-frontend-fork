@@ -7,7 +7,7 @@ import {
   UnitsListSkeleton,
 } from "@/components/QuestionsViewComponents";
 
-export default function Page() {
+export default function Loading() {
   return (
     <>
       <QuestionContainer>
