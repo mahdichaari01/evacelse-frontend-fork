@@ -24,7 +24,7 @@ export default function NavLink({
   ...props
 }: NavLinkProps) {
   let pathname = usePathname();
-  let href = hrefProp.toString();
+  let href = preprocess(hrefProp.toString());
   const nestedSegments = useSelectedLayoutSegments();
 
   // pathname= path where curr component is located + nestedSegments
@@ -49,16 +49,21 @@ export default function NavLink({
 
 function isActive(absoluteHref: string, pathname: string): boolean {
   if (absoluteHref === "/") return pathname === "/";
-  return pathname.startsWith(absoluteHref);
+  // return pathname.startsWith(absoluteHref);
+  const pathnameSegments = pathname.split("/");
+  const hrefSegments = absoluteHref.split("/");
+  return !hrefSegments.some(
+    (segment, index) => segment !== pathnameSegments[index],
+  );
 }
-function constructAbsoluteHref(href: string, base: string) {
+export function constructAbsoluteHref(href: string, base: string) {
   if (href.startsWith("/")) return href;
   // in the future we might add support for ../ and ./ in href, and why not even ../../ and so on
   if (base.endsWith("/")) return base + href;
   return base + "/" + href;
 }
 
-function constructBase(pathname: string, nestedSegments: string[] = []) {
+export function constructBase(pathname: string, nestedSegments: string[] = []) {
   const base =
     nestedSegments.length > 0
       ? pathname
@@ -68,4 +73,8 @@ function constructBase(pathname: string, nestedSegments: string[] = []) {
       : pathname;
   if (base.length === 0) return "/";
   return base;
+}
+export function preprocess(href: string) {
+  if (href.charAt(-1) == "/") return href.slice(0, href.length - 1);
+  return href;
 }

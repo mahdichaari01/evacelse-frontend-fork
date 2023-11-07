@@ -13,9 +13,15 @@ import {
   AccordionContainer,
   AccordionItemHead,
 } from "@/components/ActivitiesBrowser";
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, useEffect } from "react";
 import NavLink from "@/lib/NavLink";
 import { ChevronDown } from "@/components/icons";
+import { isAnswered, useIsAnswered } from "@/lib/isAnswered";
+import {
+  redirect,
+  usePathname,
+  useSelectedLayoutSegment,
+} from "next/navigation";
 
 export interface Activity {
   id: string;
@@ -29,6 +35,19 @@ export interface ActivitiesListProps {
 }
 
 export function ActivitiesList(props: ActivitiesListProps) {
+  const segment = useSelectedLayoutSegment();
+  const pathname = usePathname();
+  useEffect(() => {
+    if (!segment) redirect(`${pathname}/${props.activities[0].id}`);
+  }, []);
+  const userAnsweresManager = useIsAnswered("main");
+  if (typeof window !== "undefined") {
+    props.activities = props.activities.map((e) => ({
+      ...e,
+      isAnswered: userAnsweresManager.isAnswered(e.id),
+    }));
+  }
+
   console.log("activities list");
   const wide = useMediaQuery("(min-width: 1280px)");
   if (typeof window === "undefined") return null;

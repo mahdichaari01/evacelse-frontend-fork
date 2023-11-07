@@ -3,6 +3,7 @@ import React, { PropsWithChildren } from "react";
 import { ControlledModal as Modal } from "@/components/Elements";
 import { RelativeLink } from "@/lib/RelativeLink";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function QuestionLayout(
   props: PropsWithChildren<{
@@ -91,14 +92,14 @@ function NavButton(props: {
   disabled?: boolean;
 }) {
   return (
-    <RelativeLink
+    <Link
       className={`btn-outline btn-primary btn flex  h-fit w-fit flex-row  items-center justify-evenly gap-2 rounded-sm border-2 p-3 text-center font-medium md:w-40 ${
         props.disabled ? "btn-disabled opacity-50 cursor-not-allowed" : ""
       }`}
       href={props.to}
     >
       {props.children}
-    </RelativeLink>
+    </Link>
   );
 }
 

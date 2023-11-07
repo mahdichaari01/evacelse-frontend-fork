@@ -5,7 +5,7 @@ import {
   Activity,
   QuestionListContainer,
 } from "@/components/QuestionsViewComponents";
-import { getQuestions } from "@/app/library/course/[courseId]/[unitType]/[unitId]/FakeData";
+import { getQCMs, getQCMs as getQuestions } from "./data";
 
 export default async function Layout({
   children,
@@ -15,6 +15,7 @@ export default async function Layout({
   params: {
     unitType: string;
     courseId: string;
+    unitId: string;
   };
 }) {
   if (params.unitType !== "evaluations" && params.unitType !== "sessions")
@@ -22,12 +23,17 @@ export default async function Layout({
   let fetchFunction: (id: string) => Promise<Activity[]>;
 
   // if (params.unitType === "evaluations") {
-  fetchFunction = getQuestions;
-  if (params.unitType === "sessions") {
-    fetchFunction = getQuestions;
-  }
-  const data = await fetchFunction(params.courseId);
-  console.log("layout");
+  fetchFunction = async (id) => {
+    const data = await getQCMs(id);
+    return data.map((q) => ({
+      id: q.question_number,
+      type: "QCM",
+      isAnswered: false,
+    }));
+  };
+
+  const data = await fetchFunction(params.unitId);
+
   // now there should be logic that renders the correct layout based on the unitType,
   // if unitType is "evaluations" then render the Evaluations Components
   // if unitType is "sessions" then render the Sessions Components
@@ -37,6 +43,7 @@ export default async function Layout({
   // if (params.unitType === "sessions") {
   //   return <SessionsLayout>{children}</SessionsLayout>;
   // }
+
   return (
     <>
       <QuestionListContainer>
