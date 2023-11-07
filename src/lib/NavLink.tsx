@@ -38,7 +38,9 @@ export default function NavLink({
       href={absoluteHref}
       {...props}
       className={`${className} ${
-        active && window ? activeClassName : inactiveClassName
+        active && typeof window !== "undefined"
+          ? activeClassName
+          : inactiveClassName
       }`}
     >
       {/*<DebugPopover>{absoluteHref}</DebugPopover>*/}

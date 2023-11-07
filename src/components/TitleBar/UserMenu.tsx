@@ -19,16 +19,6 @@ const UserMenu = () => {
     >
       <MenuButton className="shrink-0">
         <div className="flex flex-row items-center gap-2 shrink-0">
-          {status === "loading" ? (
-            <></>
-          ) : (
-            <div className="font-bold text-darks-mid text-base leading-none flex flex-col items-end">
-              <div className="font-medium">Welcome</div>
-
-              {/*<div>{data?.user?.name || "Back!"}</div>*/}
-            </div>
-          )}
-
           <Avatar
             name="Placeholder"
             icon={<></>}
